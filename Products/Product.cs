@@ -1,20 +1,23 @@
 ﻿using System;
 
-namespace Products
+namespace ProductsLib
 {
     //Переименовать поля
-    public class Products
+    public class Product
     {
 
         private decimal pricePerKilogram;
         private double calorificPerKilogram;
-        string NameOfProduct { get; set; }
+        private double productWeight;
 
-        public Products(decimal pricePerKilogram, double calorificPerKilogram, string name)
+        public string NameOfProduct { get; set; }
+        
+        public Product(decimal pricePerKilogram, double calorificPerKilogram, double productWeight, string name)
         {
             PricePerKilogram = pricePerKilogram;
             CalorificPerKilogram = calorificPerKilogram;
             NameOfProduct = name;
+            ProductWeight = productWeight;
         }
 
         public decimal PricePerKilogram
@@ -51,6 +54,25 @@ namespace Products
                 else
                 {
                     calorificPerKilogram = value;
+                }
+            }
+        }
+
+        public double ProductWeight
+        {
+            get
+            {
+                return productWeight;
+            }
+            set
+            {
+                if (value <= 0 || value >= 10000)
+                {
+                    throw new ArgumentException("The product weight is incorrect");
+                }
+                else
+                {
+                    productWeight = value;
                 }
             }
         }

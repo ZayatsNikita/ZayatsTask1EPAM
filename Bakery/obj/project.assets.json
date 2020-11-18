@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "ProductsLib/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/ProductsLib.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ProductsLib.dll": {}
-        }
-      }
-    }
+    ".NETCoreApp,Version=v3.1": {}
   },
-  "libraries": {
-    "ProductsLib/1.0.0": {
-      "type": "project",
-      "path": "../Products/ProductsLib.csproj",
-      "msbuildProject": "../Products/ProductsLib.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "ProductsLib >= 1.0.0"
-    ]
+    ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
     "C:\\Users\\pocht\\.nuget\\packages\\": {}
@@ -32,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\ZayatsISBakery\\BakeryLib.csproj",
-      "projectName": "BakeryLib",
-      "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\ZayatsISBakery\\BakeryLib.csproj",
+      "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Bakery\\Bakery.csproj",
+      "projectName": "Bakery",
+      "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Bakery\\Bakery.csproj",
       "packagesPath": "C:\\Users\\pocht\\.nuget\\packages\\",
-      "outputPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\ZayatsISBakery\\obj\\",
+      "outputPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Bakery\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pocht\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -51,11 +32,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj": {
-              "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

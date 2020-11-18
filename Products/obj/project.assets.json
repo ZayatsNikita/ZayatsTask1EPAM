@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\Products.csproj",
-      "projectName": "Products",
-      "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\Products.csproj",
+      "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj",
+      "projectName": "ProductsLib",
+      "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj",
       "packagesPath": "C:\\Users\\pocht\\.nuget\\packages\\",
       "outputPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\obj\\",
       "projectStyle": "PackageReference",
