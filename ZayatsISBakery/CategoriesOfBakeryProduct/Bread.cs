@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Text;
 
 namespace BakeryLib.CategoriesOfBakeryProduct
 {
-    public class Breads : BakeryProduct
+    public class Bread : BakeryProduct
     {
 
         private int calorieCoefficient;
 
         #region class constructor
-        public Breads(int calorieCoefficient) : base(100)
+        public Bread(int calorieCoefficient) : base(100)
         {
             this.calorieCoefficient = calorieCoefficient;
         }
-        public Breads(decimal markUpForSale, int calorieCoefficient) : base(markUpForSale)
+        public Bread(decimal markUpForSale, int calorieCoefficient) : base(markUpForSale)
         {
             this.calorieCoefficient = calorieCoefficient;
         }
@@ -38,7 +39,7 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         }
         public override bool Equals(object obj)
         {
-            if (obj is Breads p)
+            if (obj is Bread p)
             {
                 return (p.Name == Name && p.MarkUpForSale == MarkUpForSale && p.calorieCoefficient == calorieCoefficient);
             }

@@ -1,0 +1,9 @@
+D:\Learn\EPAM\ZayatsTask1EPAM\Products\obj\Debug\netcoreapp3.1\ProductsLib.csprojAssemblyReference.cache
+D:\Learn\EPAM\ZayatsTask1EPAM\Products\obj\Debug\netcoreapp3.1\ProductsLib.AssemblyInfoInputs.cache
+D:\Learn\EPAM\ZayatsTask1EPAM\Products\obj\Debug\netcoreapp3.1\ProductsLib.AssemblyInfo.cs
+D:\Learn\EPAM\ZayatsTask1EPAM\Products\obj\Debug\netcoreapp3.1\ProductsLib.csproj.CoreCompileInputs.cache
+D:\Learn\EPAM\ZayatsTask1EPAM\Products\bin\Debug\netcoreapp3.1\ProductsLib.deps.json
+D:\Learn\EPAM\ZayatsTask1EPAM\Products\bin\Debug\netcoreapp3.1\ProductsLib.dll
+D:\Learn\EPAM\ZayatsTask1EPAM\Products\bin\Debug\netcoreapp3.1\ProductsLib.pdb
+D:\Learn\EPAM\ZayatsTask1EPAM\Products\obj\Debug\netcoreapp3.1\ProductsLib.dll
+D:\Learn\EPAM\ZayatsTask1EPAM\Products\obj\Debug\netcoreapp3.1\ProductsLib.pdb

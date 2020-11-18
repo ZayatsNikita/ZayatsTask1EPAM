@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryLib", "BakeryLib.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsLib", "..\Products\ProductsLib.csproj", "{869DF37B-2D6E-4EB3-A5B2-2CA2E6ED4C03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery", "..\Bakery\Bakery.csproj", "{1B8FD374-BA8F-45C4-ACA7-27174B82AF2A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{869DF37B-2D6E-4EB3-A5B2-2CA2E6ED4C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{869DF37B-2D6E-4EB3-A5B2-2CA2E6ED4C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{869DF37B-2D6E-4EB3-A5B2-2CA2E6ED4C03}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B8FD374-BA8F-45C4-ACA7-27174B82AF2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B8FD374-BA8F-45C4-ACA7-27174B82AF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B8FD374-BA8F-45C4-ACA7-27174B82AF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B8FD374-BA8F-45C4-ACA7-27174B82AF2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

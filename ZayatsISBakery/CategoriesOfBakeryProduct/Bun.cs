@@ -1,15 +1,17 @@
-﻿namespace BakeryLib.CategoriesOfBakeryProduct
+﻿using System;
+
+namespace BakeryLib.CategoriesOfBakeryProduct
 {
-    public class Buns : BakeryProduct
+    public class Bun : BakeryProduct
     {
         private int mandatoryExpenses;
 
         #region class constructor
-        public Buns(int calorieCoefficient) : base(100)
+        public Bun(int calorieCoefficient) : base(100)
         {
             mandatoryExpenses = calorieCoefficient;
         }
-        public Buns(decimal markUpForSale, int mandatoryExpenses) : base(markUpForSale)
+        public Bun(decimal markUpForSale, int mandatoryExpenses) : base(markUpForSale)
         {
             this.mandatoryExpenses = mandatoryExpenses;
         }
@@ -33,7 +35,7 @@
         }
         public override bool Equals(object obj)
         {
-            if (obj is Buns p)
+            if (obj is Bun p)
             {
                 return (p.Name == Name && p.MarkUpForSale == MarkUpForSale && p.mandatoryExpenses == mandatoryExpenses);
             }

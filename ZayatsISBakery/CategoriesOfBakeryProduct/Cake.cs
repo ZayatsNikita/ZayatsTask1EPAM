@@ -4,16 +4,16 @@ using System.Text;
 
 namespace BakeryLib.CategoriesOfBakeryProduct
 {
-    public class Cakes : BakeryProduct
+    public class Cake : BakeryProduct
     {
         private int costOfServing;
 
         #region class constructor
-        public Cakes(int costOfServing) : base(100)
+        public Cake(int costOfServing) : base(100)
         {
             this.costOfServing = costOfServing;
         }
-        public Cakes(decimal markUpForSale, int costOfServing) : base(markUpForSale)
+        public Cake(decimal markUpForSale, int costOfServing) : base(markUpForSale)
         {
             this.costOfServing = costOfServing;
         }
@@ -38,7 +38,7 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         }
         public override bool Equals(object obj)
         {
-            if (obj is Cakes p)
+            if (obj is Cake p)
             {
                 return (p.Name == Name && p.MarkUpForSale == MarkUpForSale && p.costOfServing == costOfServing);
             }

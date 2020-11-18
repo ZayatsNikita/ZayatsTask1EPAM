@@ -3,17 +3,17 @@ using System;
 
 namespace BakeryLib.CategoriesOfBakeryProduct
 {
-    public class Pies : BakeryProduct
+    public class Pie : BakeryProduct
     {
 
         private int priceCoeficient;
 
         #region class constructor
-        public Pies(int priceCoeficient) : base(100)
+        public Pie(int priceCoeficient) : base(100)
         {
             this.priceCoeficient = priceCoeficient;
         }
-        public Pies(decimal markUpForSale, int priceCoeficient) : base(markUpForSale)
+        public Pie(decimal markUpForSale, int priceCoeficient) : base(markUpForSale)
         {
             this.priceCoeficient = priceCoeficient;
         }
@@ -37,7 +37,7 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         }
         public override bool Equals(object obj)
         {
-            if (obj is Pies p)
+            if (obj is Pie p)
             {
                 return (p.Name == Name && p.MarkUpForSale == MarkUpForSale && p.priceCoeficient == priceCoeficient);
             }

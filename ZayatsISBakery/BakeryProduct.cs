@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Text.RegularExpressions;
+using System.Text;
 using System.Collections.Generic;
 using ProductsLib;
 namespace BakeryLib
@@ -26,21 +27,21 @@ namespace BakeryLib
             int countOfIgredients = listOfIngredients.Count;
             int index = 0;
 
-            foreach (KeyValuePair<Product, double> ingridient in listOfIngredients)
+            for (index = 0; index < countOfIgredients; index++)
             {
-                result.Append($"Ingredient {index}: {ingridient.Key.NameOfProduct}; Weight: {ingridient.Value};" +
-                    $";Colories: {ingridient.Key.CalorificPerKilogram * ingridient.Value} Kkal, price: " +
-                    $"{(decimal)ingridient.Value * ingridient.Key.PricePerKilogram}\n");
+                result.Append($"Ingredient {index}: {listOfIngredients[index].NameOfProduct}; Weight: {listOfIngredients[index].ProductWeight};" +
+                    $";Colories: {listOfIngredients[index].CalorificPerKilogram * listOfIngredients[index].ProductWeight} Kkal, price: " +
+                    $"{(decimal)listOfIngredients[index].ProductWeight * listOfIngredients[index].PricePerKilogram}\n");
             }
             return result.ToString();
         }
-        public Dictionary<Product, double> listOfIngredients;
+        public List<Product> listOfIngredients;
 
         public decimal MarkUpForSale;
         public virtual double GetCaloric()
         {
             double res = 0;
-            foreach (Product p in listOfIngredients.Keys)
+            foreach (Product p in listOfIngredients)
             {
                 res += (double)p.CalorificPerKilogram;
             }
@@ -49,12 +50,12 @@ namespace BakeryLib
         public virtual decimal GetPrice()
         {
             decimal res = 0;
-            foreach (Product p in listOfIngredients.Keys)
+            foreach (Product p in listOfIngredients)
             {
                 res += p.PricePerKilogram;
             }
             return res;
         }
-
+        
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Text.RegularExpressions;
+using System.Text;
 namespace ProductsLib
 {
     //Переименовать поля
@@ -12,6 +13,8 @@ namespace ProductsLib
 
         public string NameOfProduct { get; set; }
         
+       
+
         public Product(decimal pricePerKilogram, double calorificPerKilogram, double productWeight, string name)
         {
             PricePerKilogram = pricePerKilogram;
@@ -75,6 +78,40 @@ namespace ProductsLib
                     productWeight = value;
                 }
             }
+        }
+
+
+        public bool TryParse(string source, out Product product)
+        {
+            if (source == null)
+            {
+                product = null;
+                return false;
+            }
+            Regex regex = new Regex(@"\s+");
+            source = regex.Replace(source, " ");
+            StringBuilder resultName = new StringBuilder();
+            regex = new Regex(@"\d+[.?]\d+|\d+");
+            MatchCollection matches = regex.Matches(source);
+
+            double weight, colories, price;
+            
+            if(matches.Count==3)
+            {
+                if(Double.TryParse(matches[0].Value, out weight) && Double.TryParse(matches[1].Value, out price) && Double.TryParse(matches[2].Value, out colories))
+                {
+                    regex = new Regex(@"\D+");
+                    Match match = regex.Match(source);
+                    if(match.Success)
+                    {
+                        string name = match.Value;
+                        product = new Product((decimal)price, colories,weight,name);
+                        return true;
+                    }
+                }
+            }
+            product = null;
+            return false;
         }
 
     }

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "BakeryLib/1.0.0": {
+        "dependencies": {
+          "ProductsLib": "1.0.0"
+        },
+        "runtime": {
+          "BakeryLib.dll": {}
+        }
+      },
+      "ProductsLib/1.0.0": {
+        "runtime": {
+          "ProductsLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BakeryLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProductsLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
