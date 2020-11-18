@@ -33,7 +33,7 @@ namespace BakeryLib.CategoriesOfBakeryProduct
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(base.GetHashCode(), Name, listOfIngredients, MarkUpForSale, priceCoeficient);
+            return HashCode.Combine(base.GetHashCode(), Name, MarkUpForSale, priceCoeficient);
         }
         public override bool Equals(object obj)
         {

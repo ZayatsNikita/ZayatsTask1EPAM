@@ -24,20 +24,15 @@ namespace BakeryLib
             result.Append($"Product: {this.GetType().Name};\n");
 
             int countOfIgredients = listOfIngredients.Count;
-            
-            for (int index = 0; index < countOfIgredients; index++)
+            int index = 0;
+
+            foreach (KeyValuePair<Product, double> ingridient in listOfIngredients)
             {
-                result.Append($"Ingredient {index}: {listOfIngredients[index].NameOfProduct}; Weight: {listOfIngredients[index].ProductWeight};" +
-                    $";Colories: {listOfIngredients[index].CalorificPerKilogram* listOfIngredients[index].ProductWeight} Kkal, price: {(decimal)listOfIngredients[index].ProductWeight * listOfIngredients[index].PricePerKilogram}\n");
+                result.Append($"Ingredient {index}: {ingridient.Key.NameOfProduct}; Weight: {ingridient.Value};" +
+                    $";Colories: {ingridient.Key.CalorificPerKilogram * ingridient.Value} Kkal, price: " +
+                    $"{(decimal)ingridient.Value * ingridient.Key.PricePerKilogram}\n");
             }
-            foreach
             return result.ToString();
-        }
-        public override int GetHashCode()
-        {
-            int hashcode = Name.GetHashCode();
-            
-            return hashcode;
         }
         public Dictionary<Product, double> listOfIngredients;
 
@@ -45,7 +40,7 @@ namespace BakeryLib
         public virtual double GetCaloric()
         {
             double res = 0;
-            foreach (Product p in listOfIngredients)
+            foreach (Product p in listOfIngredients.Keys)
             {
                 res += (double)p.CalorificPerKilogram;
             }
@@ -54,7 +49,7 @@ namespace BakeryLib
         public virtual decimal GetPrice()
         {
             decimal res = 0;
-            foreach (Product p in listOfIngredients)
+            foreach (Product p in listOfIngredients.Keys)
             {
                 res += p.PricePerKilogram;
             }

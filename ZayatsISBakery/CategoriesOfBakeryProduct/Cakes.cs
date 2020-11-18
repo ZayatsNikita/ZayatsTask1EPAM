@@ -32,17 +32,20 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         }
 
 
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(base.GetHashCode(), Name, MarkUpForSale, costOfServing);
+        }
         public override bool Equals(object obj)
         {
-            if (obj is Pies p)
+            if (obj is Cakes p)
             {
-                return (p.Name == this.Name);
+                return (p.Name == Name && p.MarkUpForSale == MarkUpForSale && p.costOfServing == costOfServing);
             }
-            else
-            {
-                return false;
-            }
+            else return false;
         }
+
+
     }
 }
 

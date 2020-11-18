@@ -27,16 +27,17 @@
         }
 
 
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(base.GetHashCode(), Name, MarkUpForSale, mandatoryExpenses);
+        }
         public override bool Equals(object obj)
         {
-            if (obj is Pies p)
+            if (obj is Buns p)
             {
-                return p.Name == Name;
+                return (p.Name == Name && p.MarkUpForSale == MarkUpForSale && p.mandatoryExpenses == mandatoryExpenses);
             }
-            else
-            {
-                return false;
-            }
+            else return false;
         }
     }
 }
