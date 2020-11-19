@@ -18,9 +18,6 @@ namespace BakeryLib
             throw new NotImplementedException();
         }
 
-
-
-
         public Cake CreateCake()
         {
             throw new NotImplementedException();

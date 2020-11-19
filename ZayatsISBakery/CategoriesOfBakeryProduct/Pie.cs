@@ -28,18 +28,18 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         
         public override decimal GetPrice()
         {
-            return base.GetPrice() * MarkUpForSale * (decimal)priceCoeficient;
+            return base.GetPrice() * markUpForSale * (decimal)priceCoeficient;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(base.GetHashCode(), Name, MarkUpForSale, priceCoeficient);
+            return HashCode.Combine(base.GetHashCode(), Name, markUpForSale, priceCoeficient);
         }
         public override bool Equals(object obj)
         {
             if (obj is Pie p)
             {
-                return (p.Name == Name && p.MarkUpForSale == MarkUpForSale && p.priceCoeficient == priceCoeficient);
+                return (p.Name == Name && p.markUpForSale == markUpForSale && p.priceCoeficient == priceCoeficient);
             }
             else return false;
         }

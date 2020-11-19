@@ -81,7 +81,7 @@ namespace ProductsLib
         }
 
 
-        public bool TryParse(string source, out Product product)
+        public static bool TryParse(string source, out Product product)
         {
             if (source == null)
             {

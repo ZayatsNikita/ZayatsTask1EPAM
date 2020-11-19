@@ -6,15 +6,13 @@ namespace BakeryLib
 {
     public abstract class BakeryProduct : IBakeryProductManager
     {
-        private decimal markUpForSale;
-
         public BakeryProduct()
         {
-            this.MarkUpForSale = 10;
+            this.markUpForSale = 10;
         }
         public BakeryProduct(decimal markUpForSale)
         {
-            this.MarkUpForSale = markUpForSale;
+            this.markUpForSale = markUpForSale;
         }
         public string Name { get; set; }
 
@@ -37,7 +35,7 @@ namespace BakeryLib
         }
         public List<Product> listOfIngredients;
 
-        public decimal MarkUpForSale;
+        public decimal markUpForSale;
         public virtual double GetCaloric()
         {
             double res = 0;
@@ -56,6 +54,10 @@ namespace BakeryLib
             }
             return res;
         }
-        
+        public virtual void AddProduct(Product product)
+        {
+            if(product!=null)
+                listOfIngredients.Add(product);
+        }
     }
 }

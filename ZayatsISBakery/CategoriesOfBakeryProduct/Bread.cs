@@ -29,19 +29,19 @@ namespace BakeryLib.CategoriesOfBakeryProduct
 
         public override decimal GetPrice()
         {
-            return base.GetPrice() * MarkUpForSale;
+            return base.GetPrice() * markUpForSale;
         }
 
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(base.GetHashCode(), Name, MarkUpForSale, calorieCoefficient);
+            return HashCode.Combine(base.GetHashCode(), Name, markUpForSale, calorieCoefficient);
         }
         public override bool Equals(object obj)
         {
             if (obj is Bread p)
             {
-                return (p.Name == Name && p.MarkUpForSale == MarkUpForSale && p.calorieCoefficient == calorieCoefficient);
+                return (p.Name == Name && p.markUpForSale == markUpForSale && p.calorieCoefficient == calorieCoefficient);
             }
             else return false;
         }
