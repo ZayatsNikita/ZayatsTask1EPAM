@@ -13,6 +13,7 @@ namespace TestingOfProgramm
             BakeryProduct[] bakeries = null;
             WorkWithFile.GetData(out bakeries);
             
+            Array.Copy
         }
     }
 }
