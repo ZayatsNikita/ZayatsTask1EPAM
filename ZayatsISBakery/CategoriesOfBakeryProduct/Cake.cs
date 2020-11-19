@@ -9,11 +9,11 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         private int costOfServing;
 
         #region class constructor
-        public Cake(int costOfServing) : base(100)
+        public Cake(string name,int costOfServing) : base(name, 100)
         {
             this.costOfServing = costOfServing;
         }
-        public Cake(decimal markUpForSale, int costOfServing) : base(markUpForSale)
+        public Cake(string name, decimal markUpForSale, int costOfServing) : base(name, markUpForSale)
         {
             this.costOfServing = costOfServing;
         }

@@ -50,7 +50,7 @@ namespace ProductsLib
             }
             set
             {
-                if (value <= 0 || value >= 1000)
+                if (value < 0 || value >= 1000)
                 {
                     throw new ArgumentException("The product calorific is incorrect");
                 }
@@ -91,7 +91,7 @@ namespace ProductsLib
             Regex regex = new Regex(@"\s+");
             source = regex.Replace(source, " ");
             StringBuilder resultName = new StringBuilder();
-            regex = new Regex(@"\d+[.?]\d+|\d+");
+            regex = new Regex(@"(?<Numbers>\d+[,.+]\d+|\d+)");
             MatchCollection matches = regex.Matches(source);
 
             double weight, colories, price;
@@ -105,6 +105,7 @@ namespace ProductsLib
                     if(match.Success)
                     {
                         string name = match.Value;
+                        name = name.TrimEnd();
                         product = new Product((decimal)price, colories,weight,name);
                         return true;
                     }

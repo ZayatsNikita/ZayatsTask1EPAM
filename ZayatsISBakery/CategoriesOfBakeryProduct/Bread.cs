@@ -11,11 +11,11 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         private int calorieCoefficient;
 
         #region class constructor
-        public Bread(int calorieCoefficient) : base(100)
+        public Bread(string name, int calorieCoefficient) : base(name, 100)
         {
             this.calorieCoefficient = calorieCoefficient;
         }
-        public Bread(decimal markUpForSale, int calorieCoefficient) : base(markUpForSale)
+        public Bread(string name, decimal markUpForSale, int calorieCoefficient) : base(name, markUpForSale)
         {
             this.calorieCoefficient = calorieCoefficient;
         }

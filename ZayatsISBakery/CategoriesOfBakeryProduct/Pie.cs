@@ -9,12 +9,13 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         private int priceCoeficient;
 
         #region class constructor
-        public Pie(int priceCoeficient) : base(100)
+        public Pie(string name, int priceCoeficient) : base(name, 100)
         {
             this.priceCoeficient = priceCoeficient;
         }
-        public Pie(decimal markUpForSale, int priceCoeficient) : base(markUpForSale)
+        public Pie(string name, decimal markUpForSale, int priceCoeficient) : base(name, markUpForSale)
         {
+     
             this.priceCoeficient = priceCoeficient;
         }
         #endregion

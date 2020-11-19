@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryLib", "BakeryLib.csproj", "{37CDE2F5-A01A-485B-81B2-ABF77149B263}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakeryLib", "BakeryLib.csproj", "{37CDE2F5-A01A-485B-81B2-ABF77149B263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsLib", "..\Products\ProductsLib.csproj", "{869DF37B-2D6E-4EB3-A5B2-2CA2E6ED4C03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductsLib", "..\Products\ProductsLib.csproj", "{869DF37B-2D6E-4EB3-A5B2-2CA2E6ED4C03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingOfProgramm", "..\TestingOfProgramm\TestingOfProgramm.csproj", "{BFE24CCA-9D17-48F6-8414-F993BA560FE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{869DF37B-2D6E-4EB3-A5B2-2CA2E6ED4C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{869DF37B-2D6E-4EB3-A5B2-2CA2E6ED4C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{869DF37B-2D6E-4EB3-A5B2-2CA2E6ED4C03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFE24CCA-9D17-48F6-8414-F993BA560FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFE24CCA-9D17-48F6-8414-F993BA560FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFE24CCA-9D17-48F6-8414-F993BA560FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFE24CCA-9D17-48F6-8414-F993BA560FE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

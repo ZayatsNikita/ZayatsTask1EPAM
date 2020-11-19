@@ -7,11 +7,11 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         private int mandatoryExpenses;
 
         #region class constructor
-        public Bun(int calorieCoefficient) : base(100)
+        public Bun(string name, int calorieCoefficient) : base(name, 100)
         {
             mandatoryExpenses = calorieCoefficient;
         }
-        public Bun(decimal markUpForSale, int mandatoryExpenses) : base(markUpForSale)
+        public Bun(string name, decimal markUpForSale, int mandatoryExpenses) : base(name ,markUpForSale)
         {
             this.mandatoryExpenses = mandatoryExpenses;
         }

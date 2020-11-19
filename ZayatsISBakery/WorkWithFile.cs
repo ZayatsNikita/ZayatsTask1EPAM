@@ -7,26 +7,26 @@ using ProductsLib;
 
 namespace BakeryLib
 {
-    class WorkWithFile
+    public static class WorkWithFile
     {
-        StreamReader streamReader;
-        StreamWriter StreamWriter;
-
-        public void GetData()
+        public static void GetData(out BakeryProduct[] array)
         {
-            if (System.IO.File.Exists("data.txt"))
+            StreamReader streamReader;
+            if (System.IO.File.Exists(@"D:\Learn\EPAM\ZayatsTask1EPAM\ZayatsISBakery\text.txt"))
             {
                 string getedString;
                 Product product=null;
+                array = null;
                 BakeryProduct bakeryProduct=null;
+                List<BakeryProduct> resultList= new List<BakeryProduct>();
 
-
-                streamReader = new StreamReader("data.txt");
+                streamReader = new StreamReader(@"D:\Learn\EPAM\ZayatsTask1EPAM\ZayatsISBakery\text.txt");
                 while(!(( getedString = streamReader.ReadLine())==null))
                 {
                     try
                     {
                         bakeryProduct = Bakery.CreateBakeryProduct(getedString);
+                        resultList.Add(bakeryProduct);
                     }
                     catch(Exception ex)
                     {
@@ -39,17 +39,19 @@ namespace BakeryLib
                         }
                     }
                 }
-            }
-            else throw new NullReferenceException();
-        }
-        public void SetData()
-        {
-            if (System.IO.File.Exists("data.txt"))
-            {
-                streamReader = new StreamReader("data.txt");
+                if (resultList.Count!=0)
+                {
+                    array = new BakeryProduct[resultList.Count];
+                    for (int index = 0; index < resultList.Count; index++)
+                    {
+                        array[index] = resultList[index];
+                    }
+                }
 
+                    streamReader.Close();
             }
             else throw new NullReferenceException();
         }
+        
     }
 }
