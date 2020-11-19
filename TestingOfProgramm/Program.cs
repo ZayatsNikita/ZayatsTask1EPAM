@@ -20,7 +20,7 @@ namespace TestingOfProgramm
             Array.Copy(bakeries,bakeries1,bakeries.Length);
             Array.Copy(bakeries,bakeries2,bakeries.Length);
 
-            bakeries1.OrderBy(x => x.GetPrice);
+            //bakeries1.OrderBy(x => x.GetPrice);
         }
     }
 }

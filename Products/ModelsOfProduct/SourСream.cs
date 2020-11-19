@@ -7,7 +7,7 @@ namespace ProductsLib.ModelsOfProduct
     class SourСream : Product
     {
         private const decimal PricePerKilogramConst = 6.82M;
-        private const double CalorificPerKilogramConst = ;
+        private const double CalorificPerKilogramConst = 275.3;
         private const double ProductWeightConst = 0.1;
         public override decimal PricePerKilogram => PricePerKilogramConst;
 
@@ -20,7 +20,7 @@ namespace ProductsLib.ModelsOfProduct
             {
                 case ProductInfo pInfo:
                     {
-                        return (pInfo.name == typeof(Cream).Name && pInfo.price == PricePerKilogram && pInfo.colories == CalorificPerKilogram && pInfo.weight == ProductWeightConst);
+                        return ((pInfo.name == typeof(Cream).Name || pInfo.name == "Сметана") && pInfo.price == PricePerKilogram && pInfo.colories == CalorificPerKilogram && pInfo.weight == ProductWeightConst);
                     }
                 case Product product:
                     {

@@ -8,18 +8,6 @@ namespace BakeryLib
 {
     public abstract class BakeryProduct : IBakeryProductManager
     {
-        public BakeryProduct(string name)
-        {
-            this.Name = name;
-            this.markUpForSale = 10;
-        }
-        public BakeryProduct(string name, decimal markUpForSale)
-        {
-            this.Name = name;
-            this.markUpForSale = markUpForSale;
-        }
-        public string Name { get; set; }
-
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();
@@ -31,7 +19,7 @@ namespace BakeryLib
 
             for (index = 0; index < countOfIgredients; index++)
             {
-                result.Append($"Ingredient {index}: {listOfIngredients[index].NameOfProduct}; Weight: {listOfIngredients[index].ProductWeight};" +
+                result.Append($"Ingredient {index}: {listOfIngredients[index].GetType().Name}; Weight: {listOfIngredients[index].ProductWeight};" +
                     $";Colories: {listOfIngredients[index].CalorificPerKilogram * listOfIngredients[index].ProductWeight} Kkal, price: " +
                     $"{(decimal)listOfIngredients[index].ProductWeight * listOfIngredients[index].PricePerKilogram}\n");
             }
@@ -39,7 +27,9 @@ namespace BakeryLib
         }
         public List<Product> listOfIngredients { get; set; } = new List<Product>();
 
+        
         public decimal markUpForSale;
+        
         public virtual double GetCaloric()
         {
             double res = 0;

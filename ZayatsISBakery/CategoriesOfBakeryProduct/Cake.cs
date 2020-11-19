@@ -8,16 +8,11 @@ namespace BakeryLib.CategoriesOfBakeryProduct
     {
         private int costOfServing;
 
-        #region class constructor
-        public Cake(string name,int costOfServing) : base(name, 100)
+         public Cake()
         {
-            this.costOfServing = costOfServing;
+            markUpForSale = 300;
         }
-        public Cake(string name, decimal markUpForSale, int costOfServing) : base(name, markUpForSale)
-        {
-            this.costOfServing = costOfServing;
-        }
-        #endregion
+
 
 
 
@@ -32,26 +27,26 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         }
 
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(base.GetHashCode(), Name, markUpForSale, costOfServing);
-        }
-        public override bool Equals(object obj)
-        {
-            if (obj is Cake p)
-            {
-                return (p.Name == Name && p.markUpForSale == markUpForSale && p.costOfServing == costOfServing);
-            }
-            else return false;
-        }
+        //public override int GetHashCode()
+        //{
+        //    return HashCode.Combine(base.GetHashCode(), Name, markUpForSale, costOfServing);
+        //}
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj is Cake p)
+        //    {
+        //        return (p.Name == Name && p.markUpForSale == markUpForSale && p.costOfServing == costOfServing);
+        //    }
+        //    else return false;
+        //}
 
         public object Clone()
         {
-            Cake cake = new Cake(this.Name, this.markUpForSale, this.costOfServing);
+            Cake cake = new Cake();
             List<Product> products = this.listOfIngredients;
             foreach (Product p in products)
             {
-                cake.listOfIngredients.Add((Product)p.Clone());
+                cake.listOfIngredients.Add(p);
             }
             return cake;
         }

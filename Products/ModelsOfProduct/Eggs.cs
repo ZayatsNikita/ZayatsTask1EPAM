@@ -23,7 +23,7 @@ namespace ProductsLib.ModelsOfProduct
             {
                 case ProductInfo pInfo:
                     {
-                        return (pInfo.name == typeof(Cream).Name && pInfo.price == PricePerKilogram && pInfo.colories == CalorificPerKilogram && pInfo.weight == ProductWeightConst);
+                        return ((pInfo.name == typeof(Cream).Name || pInfo.name == "Яйца") && pInfo.price == PricePerKilogram && pInfo.colories == CalorificPerKilogram && pInfo.weight == ProductWeightConst);
                     }
                 case Product product:
                     {

@@ -61,19 +61,19 @@ namespace BakeryLib
                 Random rnd = new Random();
                 if (stringArr[0] == "Bread" || stringArr[0]=="Хлеб")
                 {
-                    return new Bread(resultName.ToString(), rnd.Next(1, 100), rnd.Next(1, 100));
+                    return new Bread();
                 }
                 if (stringArr[0] == "Cake" || stringArr[0] == "Торт")
                 {
-                    return new Cake(resultName.ToString(), rnd.Next(1, 100), rnd.Next(1, 100));
+                    return new Cake();
                 }
                 if (stringArr[0] == "Pie" || stringArr[0] == "Пирог")
                 {
-                    return new Pie(resultName.ToString(), rnd.Next(1, 100), rnd.Next(1, 100));
+                    return new Pie();
                 }
                 if (stringArr[0] == "Bun" || stringArr[0] == "Булочка")
                 {
-                    return new Bun(resultName.ToString(), rnd.Next(1, 100), rnd.Next(1, 100));
+                    return new Bun();
                 }
 
                 //Если ничего не подошло
