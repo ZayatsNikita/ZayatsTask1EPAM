@@ -1,9 +1,7 @@
-﻿using System;
+﻿using ProductsLib;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
-using BakeryLib.CategoriesOfBakeryProduct;
-using ProductsLib;
 
 namespace BakeryLib
 {
@@ -15,13 +13,14 @@ namespace BakeryLib
             if (System.IO.File.Exists(@"D:\Learn\EPAM\ZayatsTask1EPAM\ZayatsISBakery\text.txt"))
             {
                 string getedString;
-                Product product=null;
                 array = null;
                 BakeryProduct bakeryProduct=null;
                 List<BakeryProduct> resultList= new List<BakeryProduct>();
 
                 streamReader = new StreamReader(@"D:\Learn\EPAM\ZayatsTask1EPAM\ZayatsISBakery\text.txt");
-                while(!(( getedString = streamReader.ReadLine())==null))
+
+                //Filling in the list
+                while (!(( getedString = streamReader.ReadLine())==null))
                 {
                     try
                     {
@@ -30,15 +29,29 @@ namespace BakeryLib
                     }
                     catch(Exception ex)
                     {
-                        if(Product.TryParse(getedString, out product))
-                        {
                             if (bakeryProduct != null)
                             {
-                                bakeryProduct.AddProduct(product);
+                                try
+                                {
+                                    bakeryProduct.AddProduct(ProductFabrica.CreateProduct(getedString));
+                                }
+                                catch(NullReferenceException except)
+                                { }
+                                catch(ArgumentException except)
+                                { }
                             }
                         }
-                    }
                 }
+
+                //Checking recipes with zero ingredients
+                for (int index = 0; index < resultList.Count; index++)
+                {
+                    if (resultList[index].listOfIngredients.Count == 0)
+                        resultList.Remove(resultList[index]);
+                    index--;
+                }
+
+                //Transferring data from a list to an array
                 if (resultList.Count!=0)
                 {
                     array = new BakeryProduct[resultList.Count];
@@ -48,7 +61,7 @@ namespace BakeryLib
                     }
                 }
 
-                    streamReader.Close();
+                streamReader.Close();
             }
             else throw new NullReferenceException();
         }

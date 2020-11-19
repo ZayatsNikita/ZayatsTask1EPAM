@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
-    class SourСreamSalt : Product
+    class SourСream : Product
     {
         private const decimal PricePerKilogramConst = 6.82M;
         private const double CalorificPerKilogramConst = ;
