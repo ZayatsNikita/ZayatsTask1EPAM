@@ -1,8 +1,9 @@
 ﻿using System;
-
+using ProductsLib;
+using System.Collections.Generic;
 namespace BakeryLib.CategoriesOfBakeryProduct
 {
-    public class Bun : BakeryProduct
+    public class Bun : BakeryProduct, ICloneable
     {
         private int mandatoryExpenses;
 
@@ -40,6 +41,17 @@ namespace BakeryLib.CategoriesOfBakeryProduct
                 return (p.Name == Name && p.markUpForSale == markUpForSale && p.mandatoryExpenses == mandatoryExpenses);
             }
             else return false;
+        }
+
+        public object Clone()
+        {
+            Bun bun = new Bun(this.Name, this.markUpForSale, this.mandatoryExpenses);
+            List<Product> products = this.listOfIngredients;
+            foreach (Product p in products)
+            {
+                bun.listOfIngredients.Add((Product)p.Clone());
+            }
+            return bun;
         }
     }
 }

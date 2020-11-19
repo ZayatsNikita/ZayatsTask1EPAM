@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProductsLib;
 using System.Text.RegularExpressions;
 using System.Text;
 
 namespace BakeryLib.CategoriesOfBakeryProduct
 {
-    public class Bread : BakeryProduct
+    public class Bread : BakeryProduct, ICloneable
     {
 
         private int calorieCoefficient;
@@ -44,6 +45,17 @@ namespace BakeryLib.CategoriesOfBakeryProduct
                 return (p.Name == Name && p.markUpForSale == markUpForSale && p.calorieCoefficient == calorieCoefficient);
             }
             else return false;
+        }
+
+        public object Clone()
+        {
+            Bread bread =  new Bread(this.Name,this.markUpForSale,this.calorieCoefficient);
+            List <Product> products = this.listOfIngredients;
+            foreach(Product p in products)
+            {
+                bread.listOfIngredients.Add((Product)p.Clone());
+            }
+            return bread;
         }
     }
 }

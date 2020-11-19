@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7pLTVHC1I3BsJmkOfB3KrLLnTnPhsLbdG0IEK34Ppc5NlO6cNFa0cTZRqkgciLsGBm+qDtBdjqZ8/HKtvHIGHQ==",
+  "dgSpecHash": "LVPnoyCXjba7j22gHclpTJhmQv8mK8MgtLa9mw+nK6xpDlgEBFDqYEBgsYbzCmi6RHq1kZ65NJXJQ+xvQ9dBYw==",
   "success": true,
-  "projectFilePath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj",
+  "projectFilePath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\ProductsLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

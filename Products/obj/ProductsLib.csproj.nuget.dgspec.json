@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj": {}
+    "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\ProductsLib.csproj": {}
   },
   "projects": {
-    "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj": {
+    "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\ProductsLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj",
+        "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\ProductsLib.csproj",
         "projectName": "ProductsLib",
-        "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj",
+        "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\ProductsLib.csproj",
         "packagesPath": "C:\\Users\\pocht\\.nuget\\packages\\",
-        "outputPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\obj\\",
+        "outputPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pocht\\AppData\\Roaming\\NuGet\\NuGet.Config",

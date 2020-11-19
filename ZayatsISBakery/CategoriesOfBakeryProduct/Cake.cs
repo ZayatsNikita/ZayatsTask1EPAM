@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
-namespace BakeryLib.CategoriesOfBakeryProduct
+using ProductsLib;
+namespace BakeryLib.CategoriesOfBakeryProduct 
 {
-    public class Cake : BakeryProduct
+    public class Cake : BakeryProduct, ICloneable
     {
         private int costOfServing;
 
@@ -43,6 +43,17 @@ namespace BakeryLib.CategoriesOfBakeryProduct
                 return (p.Name == Name && p.markUpForSale == markUpForSale && p.costOfServing == costOfServing);
             }
             else return false;
+        }
+
+        public object Clone()
+        {
+            Cake cake = new Cake(this.Name, this.markUpForSale, this.costOfServing);
+            List<Product> products = this.listOfIngredients;
+            foreach (Product p in products)
+            {
+                cake.listOfIngredients.Add((Product)p.Clone());
+            }
+            return cake;
         }
 
 

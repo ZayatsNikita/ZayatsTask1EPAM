@@ -16,3 +16,9 @@ D:\Learn\EPAM\ZayatsTask1EPAM\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingO
 D:\Learn\EPAM\ZayatsTask1EPAM\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.dll
 D:\Learn\EPAM\ZayatsTask1EPAM\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.pdb
 D:\Learn\EPAM\ZayatsTask1EPAM\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.genruntimeconfig.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.csprojAssemblyReference.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.AssemblyInfoInputs.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.AssemblyInfo.cs
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.csproj.CoreCompileInputs.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.dll
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.pdb

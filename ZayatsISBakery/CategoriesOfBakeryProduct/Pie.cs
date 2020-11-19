@@ -1,9 +1,10 @@
 ﻿using ProductsLib;
 using System;
+using System.Collections.Generic;
 
 namespace BakeryLib.CategoriesOfBakeryProduct
 {
-    public class Pie : BakeryProduct
+    public class Pie : BakeryProduct, ICloneable
     {
 
         private int priceCoeficient;
@@ -43,6 +44,17 @@ namespace BakeryLib.CategoriesOfBakeryProduct
                 return (p.Name == Name && p.markUpForSale == markUpForSale && p.priceCoeficient == priceCoeficient);
             }
             else return false;
+        }
+
+        public object Clone()
+        {
+            Pie pie = new Pie(this.Name, this.markUpForSale, this.priceCoeficient);
+            List<Product> products = this.listOfIngredients;
+            foreach (Product p in products)
+            {
+                pie.listOfIngredients.Add((Product)p.Clone());
+            }
+            return pie;
         }
     }
 }

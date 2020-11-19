@@ -2,6 +2,8 @@
 using System.Text;
 using System.Collections.Generic;
 using ProductsLib;
+using System;
+
 namespace BakeryLib
 {
     public abstract class BakeryProduct : IBakeryProductManager
@@ -35,7 +37,7 @@ namespace BakeryLib
             }
             return result.ToString();
         }
-        public List<Product> listOfIngredients = new List<Product>();
+        public List<Product> listOfIngredients { get; set; } = new List<Product>();
 
         public decimal markUpForSale;
         public virtual double GetCaloric()

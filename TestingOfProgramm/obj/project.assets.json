@@ -51,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\TestingOfProgramm\\TestingOfProgramm.csproj",
+      "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\TestingOfProgramm\\TestingOfProgramm.csproj",
       "projectName": "TestingOfProgramm",
-      "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\TestingOfProgramm\\TestingOfProgramm.csproj",
+      "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\TestingOfProgramm\\TestingOfProgramm.csproj",
       "packagesPath": "C:\\Users\\pocht\\.nuget\\packages\\",
-      "outputPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\TestingOfProgramm\\obj\\",
+      "outputPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\TestingOfProgramm\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pocht\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -71,11 +71,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj": {
-              "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\Products\\ProductsLib.csproj"
+            "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\ProductsLib.csproj": {
+              "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\ProductsLib.csproj"
             },
-            "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\ZayatsISBakery\\BakeryLib.csproj": {
-              "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM\\ZayatsISBakery\\BakeryLib.csproj"
+            "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\ZayatsISBakery\\BakeryLib.csproj": {
+              "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\ZayatsISBakery\\BakeryLib.csproj"
             }
           }
         }

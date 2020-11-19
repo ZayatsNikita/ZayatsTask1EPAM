@@ -10,3 +10,9 @@ D:\Learn\EPAM\ZayatsTask1EPAM\ZayatsISBakery\bin\Debug\netcoreapp3.1\ProductsLib
 D:\Learn\EPAM\ZayatsTask1EPAM\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.csproj.CopyComplete
 D:\Learn\EPAM\ZayatsTask1EPAM\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.dll
 D:\Learn\EPAM\ZayatsTask1EPAM\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.pdb
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.csprojAssemblyReference.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.AssemblyInfoInputs.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.AssemblyInfo.cs
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.csproj.CoreCompileInputs.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.dll
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.pdb
