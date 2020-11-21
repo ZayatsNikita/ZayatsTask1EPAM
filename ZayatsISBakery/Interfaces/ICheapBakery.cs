@@ -8,6 +8,5 @@ namespace BakeryLib.Interfaces
     interface ICheapBakery
     {
         public Bread CreateBread();
-        public Bun CreateBun();
     }
 }

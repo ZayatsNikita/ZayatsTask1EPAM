@@ -13,3 +13,6 @@ D:\Learn\EPAM\ZayatsTask1EPAM.copy\Products\obj\Debug\netcoreapp3.1\ProductsLib.
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\Products\obj\Debug\netcoreapp3.1\ProductsLib.csproj.CoreCompileInputs.cache
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\Products\obj\Debug\netcoreapp3.1\ProductsLib.dll
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\Products\obj\Debug\netcoreapp3.1\ProductsLib.pdb
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\Products\bin\Debug\netcoreapp3.1\ProductsLib.deps.json
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\Products\bin\Debug\netcoreapp3.1\ProductsLib.dll
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\Products\bin\Debug\netcoreapp3.1\ProductsLib.pdb

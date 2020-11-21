@@ -8,50 +8,63 @@ namespace BakeryLib
 {
     public abstract class BakeryProduct : IBakeryProductManager
     {
-        public override string ToString()
-        {
-            StringBuilder result = new StringBuilder();
+        //public override string ToString()
+        //{
+        //    StringBuilder result = new StringBuilder();
             
-            result.Append($"Product: {this.GetType().Name};\n");
+        //    result.Append($"Product: {this.GetType().Name};\n");
 
-            int countOfIgredients = listOfIngredients.Count;
-            int index = 0;
+        //    int index;
 
-            for (index = 0; index < countOfIgredients; index++)
-            {
-                result.Append($"Ingredient {index}: {listOfIngredients[index].GetType().Name}; Weight: {listOfIngredients[index].ProductWeight};" +
-                    $";Colories: {listOfIngredients[index].CalorificPerKilogram * listOfIngredients[index].ProductWeight} Kkal, price: " +
-                    $"{(decimal)listOfIngredients[index].ProductWeight * listOfIngredients[index].PricePerKilogram}\n");
-            }
-            return result.ToString();
-        }
-        public List<Product> listOfIngredients { get; set; } = new List<Product>();
+        //    for (index = 0; index < NecessaryIngredients.Count; index++)
+        //    {
+        //        result.Append($"Ingredient {index}: {NecessaryIngredients[index].GetType().Name}; Weight: {NecessaryIngredients[index].ProductWeight};" +
+        //            $";Colories: {NecessaryIngredients[index].CalorificPerKilogram * NecessaryIngredients[index].ProductWeight} Kkal, price: " +
+        //            $"{(decimal)NecessaryIngredients[index].ProductWeight * NecessaryIngredients[index].PricePerKilogram}\n");
+        //    }
 
-        
+        //    for (index = 0; index < AdditionalIngredients.Count; index++)
+        //    {
+        //        result.Append($"Ingredient {index+ NecessaryIngredients.Count}: {NecessaryIngredients[index].GetType().Name}; Weight: {NecessaryIngredients[index].ProductWeight};" +
+        //            $";Colories: {NecessaryIngredients[index].CalorificPerKilogram * NecessaryIngredients[index].ProductWeight} Kkal, price: " +
+        //            $"{(decimal)NecessaryIngredients[index].ProductWeight * NecessaryIngredients[index].PricePerKilogram}\n");
+        //    }
+        //    return result.ToString();
+        //}
+       
         public decimal markUpForSale;
-        
-        public virtual double GetCaloric()
-        {
-            double res = 0;
-            foreach (Product p in listOfIngredients)
-            {
-                res += (double)p.CalorificPerKilogram;
-            }
-            return res;
-        }
-        public virtual decimal GetPrice()
-        {
-            decimal res = 0;
-            foreach (Product p in listOfIngredients)
-            {
-                res += p.PricePerKilogram;
-            }
-            return res;
-        }
-        public virtual void AddProduct(Product product)
-        {
-            if(product!=null)
-                listOfIngredients.Add(product);
-        }
+
+        public abstract double GetCaloric();
+        //{
+        //    double res = 0;
+        //    foreach (Product p in NecessaryIngredients)
+        //    {
+        //        res += (double)p.CalorificPerKilogram;
+        //    }
+        //    return res;
+        //}
+        public abstract decimal GetPrice();
+        //{
+        //    decimal res = 0;
+        //    foreach (Product p in NecessaryIngredients)
+        //    {
+        //        res += p.PricePerKilogram;
+        //    }
+        //    return res;
+        //}
+
+        //public abstract void AddNecessaryIngredients(params Product[] products);
+        //{
+        //    if (products != null)
+        //    {
+        //        foreach(Product p in products)
+        //        {
+        //            if(p!=null)
+        //                NecessaryIngredients?.Add(p);
+        //        }
+        //    }
+                
+        //}
+      
     }
 }

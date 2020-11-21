@@ -22,3 +22,15 @@ D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\Tes
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.csproj.CoreCompileInputs.cache
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.dll
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.pdb
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\TestingOfProgramm.exe
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\TestingOfProgramm.deps.json
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\TestingOfProgramm.runtimeconfig.json
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\TestingOfProgramm.runtimeconfig.dev.json
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\TestingOfProgramm.dll
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\TestingOfProgramm.pdb
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\BakeryLib.dll
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\ProductsLib.dll
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\ProductsLib.pdb
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\BakeryLib.pdb
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.csproj.CopyComplete
+D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.genruntimeconfig.cache

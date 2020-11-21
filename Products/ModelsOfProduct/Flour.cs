@@ -4,37 +4,34 @@ using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
-    class Flour : Product
+    public class Flour : IProduct
     {
         private const decimal PricePerKilogramConst = 2.5M;
         private const double CalorificPerKilogramConst = 364;
         private const double ProductWeightConst = 0.1;
-        public override decimal PricePerKilogram => PricePerKilogramConst;
+        public decimal PricePerKilogram => PricePerKilogramConst;
 
-        public override double CalorificPerKilogram => CalorificPerKilogramConst;
+        public double CalorificPerKilogram => CalorificPerKilogramConst;
 
-        public override double ProductWeight => ProductWeightConst;
-
+        public double ProductWeight => ProductWeightConst;
+        public static bool IsFlour(decimal price, double colories, double weight)
+        {
+            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight == ProductWeightConst);
+        }
         public override bool Equals(object obj)
         {
-            switch (obj)
+            if (obj.GetType() == this.GetType())
             {
-                case ProductInfo pInfo:
-                    {
-                        return ((pInfo.name == typeof(Cream).Name || pInfo.name == "Мука") && pInfo.price == PricePerKilogram && pInfo.colories == CalorificPerKilogram && pInfo.weight == ProductWeightConst);
-                    }
-                case Product product:
-                    {
-                        return (product.GetType().Name == typeof(Cream).Name && product.PricePerKilogram == PricePerKilogram && product.CalorificPerKilogram == CalorificPerKilogram && product.ProductWeight == ProductWeightConst);
-                    }
-                default:
-                    return false;
+                IProduct product = (IProduct)obj;
+                return IsFlour(product.PricePerKilogram, product.CalorificPerKilogram, product.ProductWeight);
             }
+            return false;
         }
         public override int GetHashCode()
         {
-            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeightConst);
+            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeightConst); ;
         }
+        
         public override string ToString()
         {
             return ProductWeightConst.ToString() + " " + PricePerKilogramConst.ToString() + " " + CalorificPerKilogramConst.ToString();

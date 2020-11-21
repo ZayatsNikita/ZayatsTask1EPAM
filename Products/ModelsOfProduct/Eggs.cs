@@ -4,34 +4,30 @@ using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
-    class Eggs : Product
+    public class Eggs : IProduct
     {
 
         private const decimal PricePerKilogramConst = 2.22M;
         private const double CalorificPerKilogramConst = 155;
         private const double ProductWeightConst = 0.1;
 
-        public override decimal PricePerKilogram => PricePerKilogramConst;
+        public decimal PricePerKilogram => PricePerKilogramConst;
 
-        public override double CalorificPerKilogram => CalorificPerKilogramConst;
+        public double CalorificPerKilogram => CalorificPerKilogramConst;
 
-        public override double ProductWeight => ProductWeightConst;
-
+        public double ProductWeight => ProductWeightConst;
+        public static bool IsEggs(decimal price, double colories, double weight)
+        {
+            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight == ProductWeightConst);
+        }
         public override bool Equals(object obj)
         {
-            switch (obj)
+            if (obj.GetType() == this.GetType())
             {
-                case ProductInfo pInfo:
-                    {
-                        return ((pInfo.name == typeof(Cream).Name || pInfo.name == "Яйца") && pInfo.price == PricePerKilogram && pInfo.colories == CalorificPerKilogram && pInfo.weight == ProductWeightConst);
-                    }
-                case Product product:
-                    {
-                        return (product.GetType().Name == typeof(Cream).Name && product.PricePerKilogram == PricePerKilogram && product.CalorificPerKilogram == CalorificPerKilogram && product.ProductWeight == ProductWeightConst);
-                    }
-                default:
-                    return false;
+                IProduct product = (IProduct)obj;
+                return IsEggs(product.PricePerKilogram, product.CalorificPerKilogram, product.ProductWeight);
             }
+            return false;
         }
         public override int GetHashCode()
         {

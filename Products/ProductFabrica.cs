@@ -9,111 +9,60 @@ namespace ProductsLib
    
     public static class ProductFabrica
     {
-        private static bool IsCream(ProductInfo source)
+        public static bool IsDataValid(string source, decimal price, double weight, double calories)
         {
-            return new Cream().Equals(source);
-        }
-        private static bool IsEggs(ProductInfo source)
-        {
-            return new Eggs().Equals(source);
-        }
-        private static bool IsFlour(ProductInfo source)
-        {
-            return new Flour().Equals(source);
-        }
-        private static bool IsMeat(ProductInfo source)
-        {
-            return new Meat().Equals(source);
-        }
-        private static bool IsOil(ProductInfo source)
-        {
-            return new Oil().Equals(source);
-        }
-        private static bool IsSalt(ProductInfo source)
-        {
-            return new Salt().Equals(source);
-        }
-        private static bool IsSourСream(ProductInfo source)
-        {
-            return new SourСream().Equals(source);
-        }
-        private static bool IsSugar(ProductInfo source)
-        {
-            return new Sugar().Equals(source);
-        }
-        private static bool IsWater(ProductInfo source)
-        {
-            return new Water().Equals(source);
-        }
-        private static ProductInfo StringProcessing(string source)
-        {
-            ProductInfo extractedInformation=  new ProductInfo();
-            if (source == null)
+            switch (source)
             {
-                throw new NullReferenceException("String not set");
+                case "Eggs":
+                    return (Eggs.IsEggs(price, calories, weight));
+                case "Cream":
+                    return (Cream.IsCream(price, calories, weight));
+                case "Flour":
+                    return (Flour.IsFlour(price, calories, weight));
+                case "Meat":
+                    return (Meat.IsMeat(price, calories, weight));
+                case "Oil":
+                    return (Oil.IsOil(price, calories, weight));
+                case "Salt":
+                    return (Salt.IsSalt(price, calories, weight));
+                case "SourСream":
+                    return (SourСream.IsSourСream(price, calories, weight));
+                case "Sugar":
+                    return (Sugar.IsSugar(price, calories, weight));
+                case "Water":
+                    return (Water.IsWater(price, calories, weight));
+                default:
+                    return false;
             }
-            Regex regex = new Regex(@"\s+");
-            source = regex.Replace(source, " ");
-            StringBuilder resultName = new StringBuilder();
-            regex = new Regex(@"(?<Numbers>\d+[,.+]\d+|\d+)");
-            MatchCollection matches = regex.Matches(source);
+        }
+        public static IProduct CreateProduct(string source)
+        {
+            switch (source)
+            {
+                case "Eggs":
+                        return new Eggs();
+                case "Cream":
+                        return new Cream();
+                case "Flour":
+                        return new Flour();
+                case "Meat":
+                        return new Meat();
+                case "Oil":
+                        return new Oil();
+                case "Salt":
+                        return new Salt();
+                case "SourСream":
+                        return new SourСream();
+                case "Sugar":
+                        return new Sugar();
+                case "Water":
+                        return new Water();
+                default:
+                    throw new ArgumentException("The specified string is not in the correct format");
+            }
+        }
 
-            if (matches.Count == 3)
-            {
-                if (Double.TryParse(matches[0].Value, out extractedInformation.weight) && Decimal.TryParse(matches[1].Value, out extractedInformation.price) && Double.TryParse(matches[2].Value, out extractedInformation.colories))
-                {
-                    regex = new Regex(@"\D+");
-                    Match match = regex.Match(source);
-                    if (match.Success)
-                    {
-                        extractedInformation.name = match.Value;
-                        extractedInformation.name = extractedInformation.name.TrimEnd();
-                    }
-                    return extractedInformation;
 
-                }
-
-            }
-            throw new ArgumentException("The specified string is not in the correct format");
-        }
-        public static Product CreateProduct(string source)
-        {
-            if (source == null)
-                throw new NullReferenceException("String not set");
-            ProductInfo productIfno;
-            try
-            {
-                productIfno = StringProcessing(source);
-            }
-            catch(NullReferenceException ex)
-            {
-                throw new NullReferenceException(ex.Message);
-            }
-            catch(ArgumentException ex)
-            {
-                throw new ArgumentException(ex.Message);
-            }
-            if (IsCream(productIfno))
-                return new Cream();
-            if (IsEggs(productIfno))
-                return new Eggs();
-            if(IsFlour(productIfno))
-                return new Flour();
-            if(IsMeat(productIfno))
-                return new Meat();
-            if(IsOil(productIfno))
-                return new Oil();
-            if(IsSalt(productIfno))
-                return new Salt();
-            if(IsSourСream(productIfno))
-                return new SourСream();
-            if(IsSugar(productIfno))
-                return new Sugar();
-            if(IsWater(productIfno))
-                return new Water();
-            throw new ArgumentException("The specified string is not in the correct format");
-
-        }
 
     }
 }

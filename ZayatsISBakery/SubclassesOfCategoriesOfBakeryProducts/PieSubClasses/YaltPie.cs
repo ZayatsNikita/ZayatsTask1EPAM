@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
 {
-    class MearPie
+    class YaltPie
     {
     }
 }

@@ -12,12 +12,6 @@ namespace BakeryLib
         {
             return null;
         }
-
-        public Bun CreateBun()
-        {
-            throw new NotImplementedException();
-        }
-
         public Cake CreateCake()
         {
             throw new NotImplementedException();

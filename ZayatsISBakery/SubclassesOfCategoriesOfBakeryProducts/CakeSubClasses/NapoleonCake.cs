@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses
 {
-    class Class1
+    class NapoleonCake
     {
     }
 }

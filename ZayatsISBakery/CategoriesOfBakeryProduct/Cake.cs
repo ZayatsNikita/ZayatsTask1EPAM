@@ -4,7 +4,7 @@ using System.Text;
 using ProductsLib;
 namespace BakeryLib.CategoriesOfBakeryProduct 
 {
-    public class Cake : BakeryProduct, ICloneable
+    public class Cake : BakeryProduct
     {
         private int costOfServing;
 
@@ -18,12 +18,12 @@ namespace BakeryLib.CategoriesOfBakeryProduct
 
         public override double GetCaloric()
         {
-            return base.GetCaloric();
+            return 1;
         }
 
         public override decimal GetPrice()
         {
-            return base.GetPrice() * markUpForSale + costOfServing;
+            return 2;
         }
 
 
@@ -40,16 +40,16 @@ namespace BakeryLib.CategoriesOfBakeryProduct
         //    else return false;
         //}
 
-        public object Clone()
-        {
-            Cake cake = new Cake();
-            List<Product> products = this.listOfIngredients;
-            foreach (Product p in products)
-            {
-                cake.listOfIngredients.Add(p);
-            }
-            return cake;
-        }
+        //public object Clone()
+        //{
+        //    Cake cake = new Cake();
+        //    List<Product> products = this.NecessaryIngredients;
+        //    foreach (Product p in products)
+        //    {
+        //        cake.NecessaryIngredients.Add(p);
+        //    }
+        //    return cake;
+        //}
 
 
     }

@@ -4,32 +4,29 @@ using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
-    class Salt : Product
+    public class Salt : IProduct
     {
         private const decimal PricePerKilogramConst = 0.57M;
         private const double CalorificPerKilogramConst = 0;
-        private const double ProductWeightConst = 0.1;
-        public override decimal PricePerKilogram => PricePerKilogramConst;
+        private const double ProductWeightConst = 0.3;
+        public decimal PricePerKilogram => PricePerKilogramConst;
 
-        public override double CalorificPerKilogram => CalorificPerKilogramConst;
+        public double CalorificPerKilogram => CalorificPerKilogramConst;
 
-        public override double ProductWeight => ProductWeightConst;
-
+        public double ProductWeight => ProductWeightConst;
+        
+        public static bool IsSalt(decimal price, double colories, double weight)
+        {
+            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight == ProductWeightConst);
+        }
         public override bool Equals(object obj)
         {
-            switch (obj)
+            if (obj.GetType() == this.GetType())
             {
-                case ProductInfo pInfo:
-                    {
-                        return ((pInfo.name == typeof(Cream).Name || pInfo.name == "Соль") && pInfo.price == PricePerKilogram && pInfo.colories == CalorificPerKilogram && pInfo.weight == ProductWeightConst);
-                    }
-                case Product product:
-                    {
-                        return (product.GetType().Name == typeof(Cream).Name && product.PricePerKilogram == PricePerKilogram && product.CalorificPerKilogram == CalorificPerKilogram && product.ProductWeight == ProductWeightConst);
-                    }
-                default:
-                    return false;
+                IProduct product = (IProduct)obj;
+                return IsSalt(product.PricePerKilogram, product.CalorificPerKilogram, product.ProductWeight);
             }
+            return false;
         }
         public override int GetHashCode()
         {

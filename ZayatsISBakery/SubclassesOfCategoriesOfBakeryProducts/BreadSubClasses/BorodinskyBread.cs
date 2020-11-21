@@ -2,40 +2,39 @@
 using ProductsLib;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using ProductsLib.ModelsOfProduct;
 
 namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 {
     public class BorodinskyBread : Bread
     {
-        public override void AddProduct(Product product)
-        {
-            base.AddProduct(product);
-        }
+        public static List<IProduct> NecessaryIngredients { get; } = new List<IProduct>() { new Water(), new Flour()};
+        
 
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
 
         public override double GetCaloric()
         {
-            return base.GetCaloric();
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
+            return 10;
+            ///return base.GetCaloric();
         }
 
         public override decimal GetPrice()
         {
-            return base.GetPrice();
+            return 20;
+            //return base.GetPrice();
         }
-
+        
         public override string ToString()
         {
             return "Borodinsky" + base.ToString();
         }
+        
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(NecessaryIngredients, markUpForSale);
+        }
+
     }
 }

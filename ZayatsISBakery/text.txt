@@ -1,9 +1,8 @@
-Хлеб "Сдобный" 7 шт
-Мука 0,1 кг  2 р 100 ккал
-Вода 0,1 кг 0,5р 0 ккал
-Хлеб "Бородински" 35 шт
-Яйца 0,5 кг 0,4 р 7 ккал
-Соль hgf hgfgfh gghghghgfjjfhjhjhgfjgfjhjhhj 1,9 кг 0,9 р 230 ккал
-Торт Классический Де-люкс 12 шт
-Курица 0,3 кг 9,4 р 430 ккал
-Молоко Пастеризованное 17 кг 120 р 800 ккал
+Bread "Borodinsky" 7 pieces
+Flour 0,1 kg  2,5 p 364 kkal
+Water 0,1 kg 0,46 p 0 kkal
+Bread "Kupalovsky" 35 pieces
+Eggs 0,1 kg 2,22 p 155 kkal
+Flour 0,1 kg  2,5 p 364 kkal
+Oil 0,1 kg 3,21 p 717 kkal 
+Salt 0,3 kg 0,57 p 0 kkal
