@@ -1,33 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using ProductsLib.ModelsOfProduct;
+﻿using ProductsLib.ModelsOfProduct;
+using System;
+using ProductsLib.ProductFactories;
+
 namespace ProductsLib
 {
 
     public static class ProductFabrica
     {
-        
         public static IProduct CreateProduct(string source, double weight)
         {
             switch (source)
             {
                 case "Eggs":
-                    return new Eggs() { ProductWeight = weight };
+                    return EggsFabrica.GetProduct(weight);
                 case "Flour":
-                    return new Flour() { ProductWeight = weight }; ;
+                    return FlourFabrica.GetProduct(weight);
                 case "Meat":
-                    return new Meat() { ProductWeight = weight }; ;
+                    return MeatFabrica.GetProduct(weight);
                 case "Oil":
-                    return new Oil() { ProductWeight = weight }; ;
+                    return OilFabrica.GetProduct(weight);
                 case "Salt":
-                    return new Salt() { ProductWeight = weight }; ;
+                    return SaltFabrica.GetProduct(weight);
                 case "SourСream":
-                    return new SourСream() { ProductWeight = weight }; ;
+                    return SourСreamFabrica.GetProduct(weight);
                 case "Water":
-                    return new Water() { ProductWeight = weight }; ;
+                    return WaterFabrica.GetProduct(weight);
                 default:
                     throw new ArgumentException("The specified string is not in the correct format");
             }
