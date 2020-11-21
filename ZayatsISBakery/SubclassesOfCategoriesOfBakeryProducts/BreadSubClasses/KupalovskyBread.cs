@@ -7,7 +7,7 @@ using BakeryLib.CategoriesOfBakeryProduct;
 
 namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 {
-    class KupalovskyBread  : Bread
+    public class KupalovskyBread  : Bread
     {
         public override List<IProduct> NecessaryIngredients
         {
@@ -37,7 +37,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
             double res = 0;
             foreach (IProduct p in NecessaryIngredients)
             {
-                res += (double)p.CalorificPerKilogram;
+                res += p.CalorificPerKilogram*p.ProductWeight;
             }
             return res;
         }
@@ -47,7 +47,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
             decimal res = 0;
             foreach (IProduct p in NecessaryIngredients)
             {
-                res += p.PricePerKilogram;
+                res += p.PricePerKilogram*(decimal)p.ProductWeight;
             }
             return res + markUpForSale;
         }

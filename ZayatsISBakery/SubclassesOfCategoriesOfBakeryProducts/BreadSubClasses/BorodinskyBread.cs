@@ -2,8 +2,6 @@
 using ProductsLib;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using ProductsLib.ModelsOfProduct;
 
 namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 {
@@ -34,7 +32,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
             double res = 0;
             foreach (IProduct p in NecessaryIngredients)
             {
-                res += (double)p.CalorificPerKilogram;
+                res += p.CalorificPerKilogram*p.ProductWeight;
             }
             return res;
         }
@@ -44,7 +42,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
             decimal res = 0;
             foreach (IProduct p in NecessaryIngredients)
             {
-                res += p.PricePerKilogram;
+                res += p.PricePerKilogram*(decimal)p.ProductWeight;
             }
             return res+markUpForSale;
         }

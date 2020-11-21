@@ -73,10 +73,8 @@ namespace BakeryLib
             }
             else
                 throw new FileNotFoundException();
-            if (resultList.Count != 0)
                 array = resultList.ToArray();
-            else
-                array = null;
+           
 
         }
         public static bool IsProduct(ref string source, Regex regex)

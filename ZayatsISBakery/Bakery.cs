@@ -12,16 +12,13 @@ using ProductsLib;
 
 namespace BakeryLib
 {
-    class Bakery
+    public class Bakery
     {
-        ICheapBakery cheapBakery;
-        IExpensiveBakery expensiveBakery;
-        Bakery()
+        public Bakery()
         {
-            BakeryRealizator bakeryRealizator = new BakeryRealizator();
-            cheapBakery = bakeryRealizator;
-            expensiveBakery = bakeryRealizator;
+            
         }
+        
         Dictionary<BakeryProduct, int> listOfManufacturedProducts;
 
         public void AddProduct(BakeryProduct product, int count)
@@ -31,7 +28,7 @@ namespace BakeryLib
             else
                 throw new ArgumentNullException();
         }
-        public BakeryProduct[] SortByPrice(BakeryProduct[] bakeryProducts, int left,int right)
+        public BakeryProduct[] SortByPrice(BakeryProduct[] bakeryProducts)
         {
             return  bakeryProducts.OrderBy(x=>x.GetPrice()).ToArray();
             #region quickSort
@@ -89,7 +86,7 @@ namespace BakeryLib
             //}
             var result = from bProduct in bakeryProducts
                          from ingredient in bProduct.NecessaryIngredients
-                         where bProduct.GetType() == product.GetType()
+                         where ingredient.GetType() == product.GetType()
                          where ingredient.ProductWeight > necessaryWeight
                          select bProduct;
             return result.ToArray();
@@ -110,11 +107,11 @@ namespace BakeryLib
             {
                 case "BorodinskyBread":
                     if(BorodinskyBread.IsBorodinsky(products))
-                    return new BorodinskyBread();
+                    return new BorodinskyBread() {NecessaryIngredients= products };
                     break;
                 case "KupalovskyBread":
                     if(KupalovskyBread.IsKupalovskyBread(products))
-                        return new KupalovskyBread();
+                        return new KupalovskyBread() { NecessaryIngredients = products };
                     break;
             }
             throw new ArgumentException("The bakery doesn't bake product liki this");

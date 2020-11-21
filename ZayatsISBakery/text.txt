@@ -1,5 +1,5 @@
 Bread "Borodinsky" 7 pieces
-Flour 0,1 kg  2,5 p 364 kkal
+Flour 5,2 kg  2,5 p 364 kkal
 Water 0,1 kg 0,46 p 0 kkal
 Bread "Kupalovsky" 35 pieces
 Eggs 0,1 kg 2,22 p 155 kkal
