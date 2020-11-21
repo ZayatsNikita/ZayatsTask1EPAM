@@ -14,7 +14,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
             get => _necessaryIngredients;
             set
             {
-                if (IsBorodinsky(value))
+                if (IsYaltPie(value))
                     _necessaryIngredients = value;
                 else throw new ArgumentException();
             }

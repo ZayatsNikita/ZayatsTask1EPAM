@@ -14,21 +14,22 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
             get => _necessaryIngredients;
             set
             {
-                if (IsBorodinsky(value))
+                if (IsMinskPie(value))
                     _necessaryIngredients = value;
                 else throw new ArgumentException();
             }
         }
-        public static bool IsBorodinsky(List<IProduct> list)
+        public static bool IsMinskPie(List<IProduct> list)
         {
-            if ((list?.Count ?? 0) == 2)
+            if ((list?.Count ?? 0) == 3)
             {
-                if (list.Find(x => x.GetType().Name == "Water") != null && list.Find(x => x.GetType().Name == "Flour") != null)
+                if (list.Find(x => x.GetType().Name == "Flour") != null && list.Find(x => x.GetType().Name == "Meat") != null
+                    && list.Find(x => x.GetType().Name == "Water") != null && list.Find(x => x.GetType().Name == "Eggs") != null
+                    )
                     return true;
             }
             return false;
         }
-
         public override double GetCaloric()
         {
             double res = 0;
@@ -38,7 +39,6 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
             }
             return res;
         }
-
         public override decimal GetPrice()
         {
             decimal res = 0;
@@ -48,16 +48,13 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
             }
             return res + markUpForSale;
         }
-
         public override string ToString()
         {
-            return "Borodinsky" + base.ToString();
+            return "Minsk Pie" + base.ToString();
         }
-
-
         public override int GetHashCode()
         {
-            return HashCode.Combine(NecessaryIngredients, markUpForSale);
+            return HashCode.Combine(NecessaryIngredients, markUpForSale, typeof(MinskPie).Name);
         }
 
     }

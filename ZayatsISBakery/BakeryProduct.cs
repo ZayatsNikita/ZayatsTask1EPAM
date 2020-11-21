@@ -27,6 +27,7 @@ namespace BakeryLib
         //}
        
         protected decimal markUpForSale;
+
         protected List<IProduct> _necessaryIngredients;
         public abstract List<IProduct> NecessaryIngredients { get; set; }
 
