@@ -3,10 +3,33 @@ using System.Text.RegularExpressions;
 using System.Text;
 namespace ProductsLib
 {
-    public interface IProduct
+    public abstract class IProduct
     {
-        public decimal PricePerKilogram { get; }
-        public double CalorificPerKilogram { get; }
-        public double ProductWeight { get; }
+
+        private double _productWeight;
+        public abstract decimal PricePerKilogram { get; }
+
+        public abstract double CalorificPerKilogram { get; }
+
+        public double ProductWeight
+        {
+            get
+            {
+                return _productWeight;
+            }
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("The product weight is incorrect");
+                }
+                else
+                {
+                    _productWeight = value;
+                }
+            }
+        }
+
+
     }
 }

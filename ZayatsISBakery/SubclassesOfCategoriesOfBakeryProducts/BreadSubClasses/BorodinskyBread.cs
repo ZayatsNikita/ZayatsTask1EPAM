@@ -9,20 +9,44 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 {
     public class BorodinskyBread : Bread
     {
-        public static List<IProduct> NecessaryIngredients { get; } = new List<IProduct>() { new Water(), new Flour()};
-        
-
+        public override List<IProduct> NecessaryIngredients 
+        { 
+            get =>_necessaryIngredients;
+            set 
+            {
+                if (IsBorodinsky(value))
+                    _necessaryIngredients = value;
+                else throw new ArgumentException();
+            }
+        }
+        public static bool IsBorodinsky(List<IProduct> list)
+        {
+            if((list?.Count ?? 0) == 2)
+            {
+                if (list.Find(x => x.GetType().Name == "Water")!=null && list.Find(x => x.GetType().Name == "Flour") != null)
+                    return true;
+            }
+            return false;
+        }
 
         public override double GetCaloric()
         {
-            return 10;
-            ///return base.GetCaloric();
+            double res = 0;
+            foreach (IProduct p in NecessaryIngredients)
+            {
+                res += (double)p.CalorificPerKilogram;
+            }
+            return res;
         }
 
         public override decimal GetPrice()
         {
-            return 20;
-            //return base.GetPrice();
+            decimal res = 0;
+            foreach (IProduct p in NecessaryIngredients)
+            {
+                res += p.PricePerKilogram;
+            }
+            return res+markUpForSale;
         }
         
         public override string ToString()

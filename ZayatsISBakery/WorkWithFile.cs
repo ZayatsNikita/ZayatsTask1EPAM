@@ -22,8 +22,6 @@ namespace BakeryLib
             {
                 string getedString, baceryProduct = null;
 
-
-
                 List<IProduct> keeper = new List<IProduct>();
 
                 double weight = 0, calories = 0;
@@ -54,8 +52,8 @@ namespace BakeryLib
                             {
                                 try
                                 {
-                                    if (ProductFabrica.IsDataValid(getedString, price, weight, calories))
-                                        keeper.Add(ProductFabrica.CreateProduct(getedString));
+                                    if (ProductFabrica.IsDataValid(getedString, price, weight,calories))
+                                        keeper.Add(ProductFabrica.CreateProduct(getedString,weight));
                                 }
                                 catch (NullReferenceException) { }
                                 catch (ArgumentException) { }

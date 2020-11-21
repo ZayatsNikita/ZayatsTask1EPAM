@@ -8,32 +8,34 @@ namespace ProductsLib.ModelsOfProduct
     {
         private const decimal PricePerKilogramConst = 6.82M;
         private const double CalorificPerKilogramConst = 275.3;
-        private const double ProductWeightConst = 0.1;
-        public decimal PricePerKilogram => PricePerKilogramConst;
 
-        public double CalorificPerKilogram => CalorificPerKilogramConst;
+        public override decimal PricePerKilogram => PricePerKilogramConst;
+        public override double CalorificPerKilogram => CalorificPerKilogramConst;
 
-        public double ProductWeight => ProductWeightConst;
-        public static bool IsSourСream(decimal price, double colories, double weight)
+
+        public static bool IsSourСream(decimal price, double colories,double weight)
         {
-            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight == ProductWeightConst);
+            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight >0);
         }
+
+
+
         public override bool Equals(object obj)
         {
             if (obj.GetType() == this.GetType())
             {
                 IProduct product = (IProduct)obj;
-                return IsSourСream(product.PricePerKilogram, product.CalorificPerKilogram, product.ProductWeight);
+                return ProductWeight == product.ProductWeight;
             }
             return false;
         }
         public override int GetHashCode()
         {
-            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeightConst);
+            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeight);
         }
         public override string ToString()
         {
-            return ProductWeightConst.ToString() + " " + PricePerKilogramConst.ToString() + " " + CalorificPerKilogramConst.ToString();
+            return ProductWeight.ToString() + " " + PricePerKilogramConst.ToString() + " " + CalorificPerKilogramConst.ToString();
         }
     }
 }

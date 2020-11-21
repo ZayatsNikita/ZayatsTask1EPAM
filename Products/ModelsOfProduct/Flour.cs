@@ -8,33 +8,39 @@ namespace ProductsLib.ModelsOfProduct
     {
         private const decimal PricePerKilogramConst = 2.5M;
         private const double CalorificPerKilogramConst = 364;
-        private const double ProductWeightConst = 0.1;
-        public decimal PricePerKilogram => PricePerKilogramConst;
+       
+        
+        
+        public override decimal PricePerKilogram => PricePerKilogramConst;
 
-        public double CalorificPerKilogram => CalorificPerKilogramConst;
+        public override double CalorificPerKilogram => CalorificPerKilogramConst;
 
-        public double ProductWeight => ProductWeightConst;
         public static bool IsFlour(decimal price, double colories, double weight)
         {
-            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight == ProductWeightConst);
+            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight >0);
         }
+       
+        
+        
+        
+        
         public override bool Equals(object obj)
         {
             if (obj.GetType() == this.GetType())
             {
                 IProduct product = (IProduct)obj;
-                return IsFlour(product.PricePerKilogram, product.CalorificPerKilogram, product.ProductWeight);
+                return ProductWeight == product.ProductWeight;
             }
             return false;
         }
         public override int GetHashCode()
         {
-            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeightConst); ;
+            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeight);
         }
-        
+
         public override string ToString()
         {
-            return ProductWeightConst.ToString() + " " + PricePerKilogramConst.ToString() + " " + CalorificPerKilogramConst.ToString();
+            return ProductWeight.ToString() + " " + PricePerKilogramConst.ToString() + " " + CalorificPerKilogramConst.ToString();
         }
     }
 }
