@@ -21,7 +21,7 @@ namespace ProductsLib
                     return OilFabrica.GetProduct(weight);
                 case "Salt":
                     return SaltFabrica.GetProduct(weight);
-                case "SourСream":
+                case "SourCream":
                     return SourСreamFabrica.GetProduct(weight);
                 case "Water":
                     return WaterFabrica.GetProduct(weight);

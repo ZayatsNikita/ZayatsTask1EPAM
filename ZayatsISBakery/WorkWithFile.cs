@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text.RegularExpressions;
+using ProductsLib.ProductValidaion;
 using BakeryLib.Validaion;
 
 
@@ -12,8 +12,7 @@ namespace BakeryLib
     {
         public static void GetData(out BakeryProduct[] array)
         {
-            Regex productRegex = new Regex(@"(?<Product>[a-zA-Z]+)\s+(?<ProductType>[a-zA-Z]+|[""a-zA-Z""]+)\s+(?<CountOfProduct>\d+)+\s+pieces{1}");
-            Regex ingreedientRegex = new Regex(@"(?<Params>\S+)\s+(?<Weight>\d+[,.]\d+|\d+)\s+kg\s+(?<Price>\d+[,.]\d+|\d+)\s+[pr$]\s+(?<Power>\d+[,.]\d+|\d+)\s+(kkal){1}");
+
             StreamReader streamReader;
 
             List<BakeryProduct> resultList = new List<BakeryProduct>();
@@ -33,7 +32,7 @@ namespace BakeryLib
 
                 while (!((getedString = streamReader.ReadLine()) == null))
                 {
-                    if (Validation.IsProduct(ref getedString, productRegex))
+                    if (Validation.IsProduct(ref getedString))
                     {
                         if (keeper.Count != 0)
                         {
@@ -54,11 +53,11 @@ namespace BakeryLib
                     {
                         if (createList)
                         {
-                            if (Validation.IsIngredient(ref getedString, ingreedientRegex, ref weight, ref calories, ref price))
+                            if (Validation.IsIngredient(ref getedString, ref weight, ref calories, ref price))
                             {
                                 try
                                 {
-                                    if (ProductFabrica.IsDataValid(getedString, price, weight,calories))
+                                    if (ProductValidation.IsDataValid(getedString, price, weight,calories))
                                         keeper.Add(ProductFabrica.CreateProduct(getedString,weight));
                                 }
                                 catch (NullReferenceException) { }

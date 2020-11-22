@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
 {
-    class YaltPie : Pie
+    public class YaltPie : Pie
     {
         public override List<IProduct> NecessaryIngredients
         {
@@ -21,7 +21,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
         }
         public static bool IsYaltPie(List<IProduct> list)
         {
-            if ((list?.Count ?? 0) == 4)
+            if ((list?.Count ?? 0) == 5)
             {
                 if (list.Find(x => x.GetType().Name == "Meat") != null && list.Find(x => x.GetType().Name == "Salt") != null
                     && list.Find(x => x.GetType().Name == "Flour") != null && list.Find(x => x.GetType().Name == "SourСream") != null

@@ -14,7 +14,7 @@ namespace BakeryLib
 {
     public class Bakery
     {
-        private static IBakeryFactory[] productionLine = new IBakeryFactory[] {new BorodinskyBreadFactory(), new KupalovskyBreadFactory(), new LuntikCakeFactory(),new NapoleonCakeFactory(), new MinskPieFactory(),new YaltPieFactory()};
+        //private static IBakeryFactory[] productionLine = new IBakeryFactory[] {new BorodinskyBreadFactory(), new KupalovskyBreadFactory(), new LuntikCakeFactory(),new NapoleonCakeFactory(), new MinskPieFactory(),new YaltPieFactory()};
         public BakeryProduct[] SortByPrice(BakeryProduct[] bakeryProducts)
         {
             return  bakeryProducts.OrderBy(x=>x.GetPrice()).ToArray();
@@ -48,7 +48,7 @@ namespace BakeryLib
             //    SortByPrice(bakeryProducts, i, right);
             #endregion
         }
-        public BakeryProduct[] SortByCaories(BakeryProduct[] bakeryProducts)
+        public BakeryProduct[] SortByCalories(BakeryProduct[] bakeryProducts)
         {
             return bakeryProducts.OrderBy(x=>x.GetCaloric()).ToArray();
         }
@@ -56,12 +56,12 @@ namespace BakeryLib
         {
             return bakeryProducts.Where(x=> (x.GetPrice() == product.GetPrice()) && x.GetCaloric() == product.GetCaloric()).ToArray();
         }
-        public BakeryProduct[] FilterByIngridientWeight(BakeryProduct[] bakeryProducts, IProduct product, double necessaryWeight)
+        public BakeryProduct[] FilterByIngridientWeight(BakeryProduct[] bakeryProducts, IProduct product)
         {
             var result = from bProduct in bakeryProducts
                          from ingredient in bProduct.NecessaryIngredients
                          where ingredient.GetType() == product.GetType()
-                         where ingredient.ProductWeight > necessaryWeight
+                         where ingredient.ProductWeight > product.ProductWeight
                          select bProduct;
             return result.ToArray();
         }
@@ -78,27 +78,27 @@ namespace BakeryLib
             {
                 case "BorodinskyBread":
                     if(BorodinskyBread.IsBorodinsky(products))
-                    return productionLine[0].CreateBakeryProduct(products);
+                    return BorodinskyBreadFactory.CreateBakeryProduct(products);
                     break;
                 case "KupalovskyBread":
                     if(KupalovskyBread.IsKupalovskyBread(products))
-                        return productionLine[1].CreateBakeryProduct(products);
+                        return KupalovskyBreadFactory.CreateBakeryProduct(products);
                     break;
                 case "LuntikCake":
                     if (LuntikCake.IsLunticCake(products))
-                        return productionLine[2].CreateBakeryProduct(products);
+                        return LuntikCakeFactory.CreateBakeryProduct(products);
                     break;
                 case "NapoleonCake":
                     if (NapoleonCake.IsNapoleonCake(products))
-                        return productionLine[3].CreateBakeryProduct(products);
+                        return NapoleonCakeFactory.CreateBakeryProduct(products);
                     break;
                 case "MinskPie":
                     if (MinskPie.IsMinskPie(products))
-                        productionLine[4].CreateBakeryProduct(products);
+                        return MinskPieFactory.CreateBakeryProduct(products);
                     break;
                 case "YaltPie":
                     if (YaltPie.IsYaltPie(products))
-                        productionLine[5].CreateBakeryProduct(products);
+                        return YaltPieFactory.CreateBakeryProduct(products);
                     break;
             }
             throw new ArgumentException("The bakery doesn't bake product liki this");

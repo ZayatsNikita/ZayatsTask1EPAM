@@ -3,22 +3,24 @@ using System.Text.RegularExpressions;
 
 namespace BakeryLib.Validaion
 {
-    class Validation
+    public class Validation
     {
-        public static bool IsProduct(ref string source, Regex regex)
+        static Regex productRegex = new Regex(@"\A(?<Product>[a-zA-Z]+)\s+(?<ProductType>[a-zA-Z]+|[""a-zA-Z""]+)\s+(?<CountOfProduct>\d+)+\s+pieces{1}");
+        static Regex ingreedientRegex = new Regex(@"(?<Params>[a-zA-Z]+)\s+(?<Weight>\d+[,.]\d+|\d+)\s+kg\s+(?<Price>\d+[,.]\d+|\d+)\s+[pr$]\s+(?<Power>\d+[,.]\d+|\d+)\s+(kkal){1}");
+
+        public static bool IsProduct(ref string source)
         {
-            Match match1 = regex.Match(source);
+            Match match1 = productRegex.Match(source);
             if (match1.Success)
             {
                 source = match1.Groups["ProductType"].Value.Replace("\"", "") + match1.Groups["Product"].Value;
-                Console.WriteLine(match1.Groups["Product"].Value + "   " + match1.Groups["ProductType"].Value + "  " + match1.Groups["CountOfProduct"]);
                 return true;
             }
             return false;
         }
-        public static bool IsIngredient(ref string source, Regex regex, ref double weight, ref double colories, ref decimal price)
+        public static bool IsIngredient(ref string source, ref double weight, ref double colories, ref decimal price)
         {
-            Match match2 = regex.Match(source);
+            Match match2 = ingreedientRegex.Match(source);
             {
                 if (match2.Success)
                 {
@@ -30,7 +32,6 @@ namespace BakeryLib.Validaion
                 }
             }
             return false;
-
         }
 
     }

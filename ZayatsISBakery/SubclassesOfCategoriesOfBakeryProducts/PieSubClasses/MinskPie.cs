@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
 {
-    class MinskPie : Pie
+    public class MinskPie : Pie
     {
         public override List<IProduct> NecessaryIngredients
         {
@@ -21,7 +21,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
         }
         public static bool IsMinskPie(List<IProduct> list)
         {
-            if ((list?.Count ?? 0) == 3)
+            if ((list?.Count ?? 0) == 4)
             {
                 if (list.Find(x => x.GetType().Name == "Flour") != null && list.Find(x => x.GetType().Name == "Meat") != null
                     && list.Find(x => x.GetType().Name == "Water") != null && list.Find(x => x.GetType().Name == "Eggs") != null

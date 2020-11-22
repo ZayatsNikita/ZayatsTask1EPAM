@@ -2,7 +2,7 @@
 using System;
 namespace ProductsLib.ProductValidaion
 {
-    class ProductValidation
+    public class ProductValidation
     {
         public static bool IsDataValid(string source, decimal price, double weight, double calories)
         {
@@ -18,7 +18,7 @@ namespace ProductsLib.ProductValidaion
                     return (Oil.IsOil(price, calories, weight));
                 case "Salt":
                     return (Salt.IsSalt(price, calories, weight));
-                case "SourСream":
+                case "SourCream":
                     return (SourСream.IsSourСream(price, calories, weight));
                 case "Water":
                     return (Water.IsWater(price, calories, weight));

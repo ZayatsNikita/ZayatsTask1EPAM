@@ -1,4 +1,4 @@
-Bread "Borodinsky" 7 pieces
+Bread "Borodinsky" 6 pieces
 Flour 5,2 kg  2,5 p 364 kkal
 Water 0,1 kg 0,46 p 0 kkal
 Bread "Kupalovsky" 35 pieces
@@ -6,3 +6,21 @@ Eggs 0,1 kg 2,22 p 155 kkal
 Flour 0,1 kg  2,5 p 364 kkal
 Oil 0,1 kg 3,21 p 717 kkal 
 Salt 0,3 kg 0,57 p 0 kkal
+Cake "Luntik" 7 pieces
+Salt 0,3 kg 0,57 p 0 kkal
+Water 0,1 kg 0,46 p 0 kkal
+Eggs 0,1 kg 2,22 p 155 kkal
+Cake Napoleon 32 pieces
+SourCream 5 kg 6,82 p 275,3 kkal
+Eggs 0,1 kg 2,22 p 155 kkal
+Pie "Yalt" 16 pieces
+Meat 5 kg 6,42 p  242 kkal
+Flour 5,2 kg  2,5 p 364 kkal
+Salt 0,3 kg 0,57 p 0 kkal
+SourCream 5 kg 6,82 p 275,3 kkal
+Oil 0,1 kg 3,21 p 717 kkal 
+Pie "Minsk" 1 pieces
+Meat 5 kg 6,42 p  242 kkal
+Flour 5,2 kg  2,5 p 364 kkal
+Water 0,1 kg 0,46 p 0 kkal
+Eggs 0,1 kg 2,22 p 155 kkal

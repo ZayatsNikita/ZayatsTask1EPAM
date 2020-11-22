@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses
 {
-    class LuntikCake : Cake
+    public class LuntikCake : Cake
     {
         public override List<IProduct> NecessaryIngredients
         {

@@ -6,7 +6,7 @@ namespace BakeryLib.Factories
 {
     class LuntikCakeFactory : IBakeryFactory
     {
-        public BakeryProduct CreateBakeryProduct(List<IProduct> products)
+        public static BakeryProduct CreateBakeryProduct(List<IProduct> products)
         {
             return new LuntikCake() { NecessaryIngredients = products };
         }

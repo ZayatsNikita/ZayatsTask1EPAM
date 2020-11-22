@@ -24,7 +24,7 @@ namespace TestingOfProgramm
             Array.Copy(bakeries, bakeries2, bakeries.Length);
 
 
-            bakeries1 = bakery.SortByCaories(bakeries1);
+            bakeries1 = bakery.SortByCalories(bakeries1);
             bakeries2 = bakery.SortByPrice(bakeries2);
 
             BakeryProduct[] equalsBakeryProduct = bakery.FilterByPriceAndColories(bakeries, new KupalovskyBread() 
@@ -37,7 +37,7 @@ namespace TestingOfProgramm
             }
             });
 
-            BakeryProduct[] ingredientWeightBakeryProduct = bakery.FilterByIngridientWeight(bakeries, new Flour() {ProductWeight = 1.2 }, 1.0);
+            BakeryProduct[] ingredientWeightBakeryProduct = bakery.FilterByIngridientWeight(bakeries, new Flour() {ProductWeight = 1.0 });
 
             BakeryProduct[] ingredientCountBakeryProduct = bakery.FilterByIngridientsCount(bakeries,3);
 

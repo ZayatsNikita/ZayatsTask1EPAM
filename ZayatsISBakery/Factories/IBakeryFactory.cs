@@ -5,7 +5,7 @@ namespace BakeryLib.Factories
 {
     interface IBakeryFactory
     {
-        public BakeryProduct CreateBakeryProduct(List<IProduct> products);
+        public static BakeryProduct CreateBakeryProduct(List<IProduct> products)=>null;
     }
 }
 
