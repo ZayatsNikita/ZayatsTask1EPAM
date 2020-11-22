@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 namespace ProductsLib
 {
-    public abstract class IProduct
+    public abstract class Product
     {
 
         private double _productWeight;

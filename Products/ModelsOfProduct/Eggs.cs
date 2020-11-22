@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
-    public class Eggs : IProduct
+    public class Eggs : Product
     {
 
         private const decimal PricePerKilogramConst = 2.22M;
@@ -24,7 +24,7 @@ namespace ProductsLib.ModelsOfProduct
         {
             if (obj.GetType() == this.GetType())
             {
-                IProduct product = (IProduct)obj;
+                Product product = (Product)obj;
                 return ProductWeight == product.ProductWeight;
             }
             return false;

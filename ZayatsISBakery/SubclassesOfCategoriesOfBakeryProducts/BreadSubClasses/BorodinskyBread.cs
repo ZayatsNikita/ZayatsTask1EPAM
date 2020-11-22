@@ -7,17 +7,12 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 {
     public class BorodinskyBread : Bread
     {
-        public override List<IProduct> NecessaryIngredients 
-        { 
-            get =>_necessaryIngredients;
-            set 
-            {
-                if (IsBorodinsky(value))
-                    _necessaryIngredients = value;
-                else throw new ArgumentException();
-            }
+        public BorodinskyBread(List<Product> products)
+        {
+            if (IsBorodinsky(products))
+                _necessaryIngredients = products;
         }
-        public static bool IsBorodinsky(List<IProduct> list)
+        public static bool IsBorodinsky(List<Product> list)
         {
             if((list?.Count ?? 0) == 2)
             {
@@ -27,32 +22,23 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
             return false;
         }
 
-        public override double GetCaloric()
+        public override bool Equals(object obj)
         {
-            double res = 0;
-            foreach (IProduct p in NecessaryIngredients)
-            {
-                res += p.CalorificPerKilogram*p.ProductWeight;
+            if (obj.GetType() != this.GetType() || obj== null) return false;
+            BorodinskyBread bread = (BorodinskyBread)obj;
+            {//Проверить на ошибки
+                for (int index = 0;index< (NecessaryIngredients?.Count ?? 0);index++)
+                {
+                    if (bread.NecessaryIngredients.Find(x => x.GetType().Name == NecessaryIngredients[index].GetType().Name).ProductWeight != NecessaryIngredients[index].ProductWeight)
+                        return false;
+                }
+                return true;   
             }
-            return res;
         }
-
-        public override decimal GetPrice()
-        {
-            decimal res = 0;
-            foreach (IProduct p in NecessaryIngredients)
-            {
-                res += p.PricePerKilogram*(decimal)p.ProductWeight;
-            }
-            return res+markUpForSale;
-        }
-        
         public override string ToString()
         {
             return "Borodinsky" + base.ToString();
-        }
-        
-
+        }        
         public override int GetHashCode()
         {
             return HashCode.Combine(NecessaryIngredients, markUpForSale);

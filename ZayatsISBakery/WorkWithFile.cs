@@ -21,7 +21,7 @@ namespace BakeryLib
             {
                 string getedString, baceryProduct = null;
 
-                List<IProduct> keeper = new List<IProduct>();
+                List<Product> keeper = new List<Product>();
 
                 double weight = 0, calories = 0;
                 decimal price = 0;
@@ -43,7 +43,7 @@ namespace BakeryLib
                             catch (ArgumentException) { }
                             finally
                             {
-                                keeper = new List<IProduct>();
+                                keeper = new List<Product>();
                             }
                         }
                         baceryProduct = getedString;

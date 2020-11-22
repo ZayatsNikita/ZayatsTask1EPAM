@@ -1,36 +1,51 @@
 ﻿using ProductsLib;
 using System.Collections.Generic;
+using System.Text;
 
 namespace BakeryLib
 {
-    public abstract class BakeryProduct /*: IBakeryProductManager
-*/    {
-        //public override string ToString()
-        //{
-        //    StringBuilder result = new StringBuilder();
-            
-        //    result.Append($"Product: {this.GetType().Name};\n");
+    public abstract class BakeryProduct 
+    {
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
 
-        //    int index;
+            int index;
 
-        //    for (index = 0; index < NecessaryIngredients.Count; index++)
-        //    {
-        //        result.Append($"Ingredient {index}: {NecessaryIngredients[index].GetType().Name}; Weight: {NecessaryIngredients[index].ProductWeight};" +
-        //            $";Colories: {NecessaryIngredients[index].CalorificPerKilogram * NecessaryIngredients[index].ProductWeight} Kkal, price: " +
-        //            $"{(decimal)NecessaryIngredients[index].ProductWeight * NecessaryIngredients[index].PricePerKilogram}\n");
-        //    }
+            for (index = 0; index < NecessaryIngredients.Count; index++)
+            {
+                result.Append($"Ingredient {index}: {NecessaryIngredients[index].GetType().Name}; Weight: {NecessaryIngredients[index].ProductWeight};" +
+                    $";Colories: {NecessaryIngredients[index].CalorificPerKilogram * NecessaryIngredients[index].ProductWeight} Kkal, price: " +
+                    $"{(decimal)NecessaryIngredients[index].ProductWeight * NecessaryIngredients[index].PricePerKilogram}\n");
+            }
 
-        //    return result.ToString();
-        //}
-       
+            return result.ToString();
+        }
+
         protected decimal markUpForSale;
 
-        protected List<IProduct> _necessaryIngredients;
-        public abstract List<IProduct> NecessaryIngredients { get; set; }
+        protected List<Product> _necessaryIngredients;
+        public virtual List<Product> NecessaryIngredients { get=> _necessaryIngredients; }
 
-        public abstract double GetCaloric();
+        public virtual double GetCaloric()
+        { 
+            double res = 0;
+            foreach(Product p in NecessaryIngredients)
+            {
+                res += p.CalorificPerKilogram * p.ProductWeight;
+            }
+            return res;
+        }
         
-        public abstract decimal GetPrice();
+        public virtual decimal GetPrice()
+        {
+            decimal res = 0;
+            foreach (Product p in NecessaryIngredients)
+            {
+                res += p.PricePerKilogram * (decimal)p.ProductWeight;
+            }
+            return res + markUpForSale;
+        }
        
     }
 }

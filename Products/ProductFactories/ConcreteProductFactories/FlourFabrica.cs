@@ -4,7 +4,7 @@ namespace ProductsLib.ProductFactories
 {
     class FlourFabrica : IProductFabrica
     {
-        public static IProduct GetProduct(double weight)
+        public static Product GetProduct(double weight)
         {
             return new Flour() {ProductWeight=weight };
         }

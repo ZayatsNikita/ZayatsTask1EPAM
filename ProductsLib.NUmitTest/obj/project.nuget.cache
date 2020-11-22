@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SvyxE+o//E3Cx1B9BzcgsquXoWM8fbiI2t+F1dIQoPvl5QiDIFZkSF4r6/TgYOhfjzQX8Gz53xp+QPY0xJDtMA==",
+  "dgSpecHash": "jBHeDf/QUtCupGEUKDmZWbvAYykuJftNQW/3WWP8GghaZmsjfvnsq4i8QAISnhc/BrSmF7/7PzEl963eR5OTKg==",
   "success": true,
-  "projectFilePath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\ProductsLib.NUmitTest\\ProductsLib.NUmitTest.csproj",
+  "projectFilePath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copyRes\\ProductsLib.NUmitTest\\ProductsLib.NUmitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pocht\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\pocht\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

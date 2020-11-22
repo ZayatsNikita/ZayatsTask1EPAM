@@ -6,9 +6,9 @@ namespace BakeryLib.Factories
 {
     class YaltPieFactory : IBakeryFactory
     {
-        public static BakeryProduct CreateBakeryProduct(List<IProduct> products)
+        public static BakeryProduct CreateBakeryProduct(List<Product> products)
         {
-            return new YaltPie() { NecessaryIngredients = products };
+            return new YaltPie(products);
         }
     }
 }

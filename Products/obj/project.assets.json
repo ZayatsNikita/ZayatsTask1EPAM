@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\ProductsLib.csproj",
+      "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copyRes\\Products\\ProductsLib.csproj",
       "projectName": "ProductsLib",
-      "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\ProductsLib.csproj",
+      "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copyRes\\Products\\ProductsLib.csproj",
       "packagesPath": "C:\\Users\\pocht\\.nuget\\packages\\",
-      "outputPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copy\\Products\\obj\\",
+      "outputPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copyRes\\Products\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pocht\\AppData\\Roaming\\NuGet\\NuGet.Config",

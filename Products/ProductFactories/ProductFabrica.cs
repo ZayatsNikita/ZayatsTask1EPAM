@@ -7,7 +7,7 @@ namespace ProductsLib
 
     public static class ProductFabrica
     {
-        public static IProduct CreateProduct(string source, double weight)
+        public static Product CreateProduct(string source, double weight)
         {
             switch (source)
             {

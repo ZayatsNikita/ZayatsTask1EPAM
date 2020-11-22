@@ -9,17 +9,13 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 {
     public class KupalovskyBread  : Bread
     {
-        public override List<IProduct> NecessaryIngredients
+        public KupalovskyBread(List<Product> necessaryIngredients)
         {
-            get => _necessaryIngredients;
-            set
-            {
-                if (IsKupalovskyBread(value))
-                    _necessaryIngredients = value;
-                else throw new ArgumentException();
-            }
+            if (IsKupalovskyBread(necessaryIngredients))
+                _necessaryIngredients = necessaryIngredients;
         }
-        public static bool IsKupalovskyBread(List<IProduct> list)
+
+        public static bool IsKupalovskyBread(List<Product> list)
         {
             if ((list?.Count ?? 0) == 4)
             {
@@ -32,30 +28,21 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 
 
 
-        public override double GetCaloric()
+        public override bool Equals(object obj)
         {
-            double res = 0;
-            foreach (IProduct p in NecessaryIngredients)
-            {
-                res += p.CalorificPerKilogram*p.ProductWeight;
+            if (obj.GetType() != this.GetType() || obj == null) return false;
+            KupalovskyBread bread = (KupalovskyBread)obj;
+            {//Проверить на ошибки
+                for (int index = 0; index < (NecessaryIngredients?.Count ?? 0); index++)
+                {
+                    if (bread.NecessaryIngredients.Find(x => x.GetType().Name == NecessaryIngredients[index].GetType().Name).ProductWeight != NecessaryIngredients[index].ProductWeight)
+                        return false;
+                }
+                return true;
             }
-            return res;
         }
 
-        public override decimal GetPrice()
-        {
-            decimal res = 0;
-            foreach (IProduct p in NecessaryIngredients)
-            {
-                res += p.PricePerKilogram*(decimal)p.ProductWeight;
-            }
-            return res + markUpForSale;
-        }
 
-        
-        
-        
-        
         public override string ToString()
         {
             return "Kupalovsky" + base.ToString();

@@ -9,17 +9,25 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
 {
     public class YaltPie : Pie
     {
-        public override List<IProduct> NecessaryIngredients
+        public YaltPie(List<Product> necessaryIngredients)
         {
-            get => _necessaryIngredients;
-            set
-            {
-                if (IsYaltPie(value))
-                    _necessaryIngredients = value;
-                else throw new ArgumentException();
+            if (IsYaltPie(necessaryIngredients))
+                _necessaryIngredients = necessaryIngredients;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() != this.GetType() || obj == null) return false;
+            YaltPie pie = (YaltPie)obj;
+            {//Проверить на ошибки
+                for (int index = 0; index < (NecessaryIngredients?.Count ?? 0); index++)
+                {
+                    if (pie.NecessaryIngredients.Find(x => x.GetType().Name == NecessaryIngredients[index].GetType().Name).ProductWeight != NecessaryIngredients[index].ProductWeight)
+                        return false;
+                }
+                return true;
             }
         }
-        public static bool IsYaltPie(List<IProduct> list)
+        public static bool IsYaltPie(List<Product> list)
         {
             if ((list?.Count ?? 0) == 5)
             {
@@ -30,24 +38,6 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
                     return true;
             }
             return false;
-        }
-        public override double GetCaloric()
-        {
-            double res = 0;
-            foreach (IProduct p in NecessaryIngredients)
-            {
-                res += p.CalorificPerKilogram * p.ProductWeight;
-            }
-            return res;
-        }
-        public override decimal GetPrice()
-        {
-            decimal res = 0;
-            foreach (IProduct p in NecessaryIngredients)
-            {
-                res += p.PricePerKilogram * (decimal)p.ProductWeight;
-            }
-            return res + markUpForSale;
         }
         public override string ToString()
         {

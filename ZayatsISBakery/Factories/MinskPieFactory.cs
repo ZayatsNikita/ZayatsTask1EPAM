@@ -6,9 +6,9 @@ namespace BakeryLib.Factories
 {
     class MinskPieFactory : IBakeryFactory
     {
-        public static BakeryProduct CreateBakeryProduct(List<IProduct> products)
+        public static BakeryProduct CreateBakeryProduct(List<Product> products)
         {
-            return new MinskPie() { NecessaryIngredients = products };
+            return new MinskPie(products);
         }
     }
 }

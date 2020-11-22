@@ -22,3 +22,15 @@ D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\bin\Debug\netcoreapp3.1\Bakery
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\bin\Debug\netcoreapp3.1\ProductsLib.dll
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\bin\Debug\netcoreapp3.1\ProductsLib.pdb
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.csproj.CopyComplete
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.csprojAssemblyReference.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.AssemblyInfoInputs.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.AssemblyInfo.cs
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.csproj.CoreCompileInputs.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.dll
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.pdb
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\bin\Debug\netcoreapp3.1\BakeryLib.deps.json
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\bin\Debug\netcoreapp3.1\BakeryLib.dll
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\bin\Debug\netcoreapp3.1\BakeryLib.pdb
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\bin\Debug\netcoreapp3.1\ProductsLib.dll
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\bin\Debug\netcoreapp3.1\ProductsLib.pdb
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\obj\Debug\netcoreapp3.1\BakeryLib.csproj.CopyComplete

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
-    public class Water : IProduct
+    public class Water : Product
     {
         private const decimal PricePerKilogramConst = 0.46M;
         private const double CalorificPerKilogramConst = 0;
@@ -30,7 +30,7 @@ namespace ProductsLib.ModelsOfProduct
         {
             if (obj.GetType() == this.GetType())
             {
-                IProduct product = (IProduct)obj;
+                Product product = (Product)obj;
                 return ProductWeight == product.ProductWeight;
             }
             return false;

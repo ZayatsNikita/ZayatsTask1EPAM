@@ -9,17 +9,12 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
 {
     public class MinskPie : Pie
     {
-        public override List<IProduct> NecessaryIngredients
+        public MinskPie(List<Product> necessaryIngredients)
         {
-            get => _necessaryIngredients;
-            set
-            {
-                if (IsMinskPie(value))
-                    _necessaryIngredients = value;
-                else throw new ArgumentException();
-            }
+            if (IsMinskPie(necessaryIngredients))
+                _necessaryIngredients = necessaryIngredients;
         }
-        public static bool IsMinskPie(List<IProduct> list)
+        public static bool IsMinskPie(List<Product> list)
         {
             if ((list?.Count ?? 0) == 4)
             {
@@ -30,23 +25,19 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
             }
             return false;
         }
-        public override double GetCaloric()
+
+        public override bool Equals(object obj)
         {
-            double res = 0;
-            foreach (IProduct p in NecessaryIngredients)
-            {
-                res += p.CalorificPerKilogram * p.ProductWeight;
+            if (obj.GetType() != this.GetType() || obj == null) return false;
+            MinskPie pie = (MinskPie)obj;
+            {//Проверить на ошибки
+                for (int index = 0; index < (NecessaryIngredients?.Count ?? 0); index++)
+                {
+                    if (pie.NecessaryIngredients.Find(x => x.GetType().Name == NecessaryIngredients[index].GetType().Name).ProductWeight != NecessaryIngredients[index].ProductWeight)
+                        return false;
+                }
+                return true;
             }
-            return res;
-        }
-        public override decimal GetPrice()
-        {
-            decimal res = 0;
-            foreach (IProduct p in NecessaryIngredients)
-            {
-                res += p.PricePerKilogram * (decimal)p.ProductWeight;
-            }
-            return res + markUpForSale;
         }
         public override string ToString()
         {

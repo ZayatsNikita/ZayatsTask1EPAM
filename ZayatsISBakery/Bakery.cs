@@ -56,7 +56,7 @@ namespace BakeryLib
         {
             return bakeryProducts.Where(x=> (x.GetPrice() == product.GetPrice()) && x.GetCaloric() == product.GetCaloric()).ToArray();
         }
-        public BakeryProduct[] FilterByIngridientWeight(BakeryProduct[] bakeryProducts, IProduct product)
+        public BakeryProduct[] FilterByIngridientWeight(BakeryProduct[] bakeryProducts, Product product)
         {
             var result = from bProduct in bakeryProducts
                          from ingredient in bProduct.NecessaryIngredients
@@ -72,7 +72,7 @@ namespace BakeryLib
         
         
         
-        public static BakeryProduct CreateBakeryProduct(string source, List<IProduct> products)
+        public static BakeryProduct CreateBakeryProduct(string source, List<Product> products)
         {
             switch (source)
             {

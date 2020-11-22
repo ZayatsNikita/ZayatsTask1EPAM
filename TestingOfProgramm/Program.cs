@@ -28,7 +28,7 @@ namespace TestingOfProgramm
             bakeries2 = bakery.SortByPrice(bakeries2);
 
             BakeryProduct[] equalsBakeryProduct = bakery.FilterByPriceAndColories(bakeries, new KupalovskyBread() 
-            {NecessaryIngredients =new List<IProduct>()
+            {NecessaryIngredients =new List<Product>()
             {
                 new Eggs() {ProductWeight=0.1},
                 new Flour(){ProductWeight=0.1},

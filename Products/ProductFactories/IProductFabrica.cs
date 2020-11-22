@@ -3,6 +3,6 @@ namespace ProductsLib.ProductFactories
 {
     interface IProductFabrica
     {
-        public static IProduct GetProduct(double weight) => throw new NullReferenceException(); 
+        public static Product GetProduct(double weight) => throw new NullReferenceException(); 
     }
 }

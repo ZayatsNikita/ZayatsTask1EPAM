@@ -7,17 +7,12 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses
 {
     public class NapoleonCake : Cake
     {
-        public override List<IProduct> NecessaryIngredients
+        public NapoleonCake(List<Product> necessaryIngredients)
         {
-            get => _necessaryIngredients;
-            set
-            {
-                if (IsNapoleonCake(value))
-                    _necessaryIngredients = value;
-                else throw new ArgumentException();
-            }
+            if (IsNapoleonCake(necessaryIngredients))
+                _necessaryIngredients = necessaryIngredients;
         }
-        public static bool IsNapoleonCake(List<IProduct> list)
+        public static bool IsNapoleonCake(List<Product> list)
         {
             if ((list?.Count ?? 0) == 2)
             {
@@ -26,23 +21,18 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses
             }
             return false;
         }
-        public override double GetCaloric()
+        public override bool Equals(object obj)
         {
-            double res = 0;
-            foreach (IProduct p in NecessaryIngredients)
+            if (obj.GetType() != this.GetType() || obj == null) return false;
+            NapoleonCake cake = (NapoleonCake)obj;
             {
-                res += p.CalorificPerKilogram * p.ProductWeight;
+                for (int index = 0; index < (NecessaryIngredients?.Count ?? 0); index++)
+                {
+                    if (cake.NecessaryIngredients.Find(x => x.GetType().Name == NecessaryIngredients[index].GetType().Name).ProductWeight != NecessaryIngredients[index].ProductWeight)
+                        return false;
+                }
+                return true;
             }
-            return res;
-        }
-        public override decimal GetPrice()
-        {
-            decimal res = 0;
-            foreach (IProduct p in NecessaryIngredients)
-            {
-                res += p.PricePerKilogram * (decimal)p.ProductWeight;
-            }
-            return res + markUpForSale;
         }
         public override string ToString()
         {

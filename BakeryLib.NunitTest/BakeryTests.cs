@@ -22,9 +22,9 @@ namespace BakeryLib.NunitTest
         [Test]
         public void SortByPriceTest_TheOrderIsIncorrect_TheOrderOfElementsWillChange()
         {
-            BakeryProduct[] bakeryProducts = new BakeryProduct[] {new LuntikCake (){NecessaryIngredients = new List<IProduct>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } },
-             new KupalovskyBread () {NecessaryIngredients= new List<IProduct>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } },
-             new BorodinskyBread() {NecessaryIngredients= new List<IProduct>() { new Water() {ProductWeight=5 },new Flour() {ProductWeight=5 } } }
+            BakeryProduct[] bakeryProducts = new BakeryProduct[] {new LuntikCake (new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } ),
+             new KupalovskyBread (new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
+             new BorodinskyBread( new List<Product>() { new Water() {ProductWeight=5 },new Flour() {ProductWeight=5 } } )
 
             };
 
@@ -38,12 +38,12 @@ namespace BakeryLib.NunitTest
         public void SortByCaloricTest_TheOrderIsIncorrect_TheOrderOfElementsWillChange()
         {
             BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake (){NecessaryIngredients = new List<IProduct>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } },
-             new KupalovskyBread () {NecessaryIngredients= new List<IProduct>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } },
-             new BorodinskyBread() {NecessaryIngredients= new List<IProduct>() { new Water() {ProductWeight=5 },new Flour() {ProductWeight=5 } } },
-             new YaltPie(){NecessaryIngredients=new List<IProduct>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.1 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } },
-             new MinskPie(){NecessaryIngredients = new List<IProduct>{ new Flour() {ProductWeight=0.3 },new Meat() {ProductWeight=1.5},new Water() {ProductWeight=0.1},new Eggs() {ProductWeight=0.6 } } },
-             new NapoleonCake(){NecessaryIngredients = new List<IProduct>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } }
+             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } ),
+             new KupalovskyBread (new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
+             new BorodinskyBread( new List<Product>() { new Water() {ProductWeight=5 },new Flour() {ProductWeight=5 } } ),
+             new YaltPie(new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.1 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
+             new MinskPie(new List<Product>{ new Flour() {ProductWeight=0.3 },new Meat() {ProductWeight=1.5},new Water() {ProductWeight=0.1},new Eggs() {ProductWeight=0.6 } } ),
+             new NapoleonCake( new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
             };
 
             bakeryProducts = bakery.SortByCalories(bakeryProducts);
@@ -59,14 +59,14 @@ namespace BakeryLib.NunitTest
         {
             
             BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake (){NecessaryIngredients = new List<IProduct>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } },
-             new KupalovskyBread () {NecessaryIngredients= new List<IProduct>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } },
-             new BorodinskyBread() { NecessaryIngredients = new List<IProduct> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } },
-             new YaltPie(){NecessaryIngredients=new List<IProduct>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.1 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } },
-             new MinskPie(){NecessaryIngredients = new List<IProduct>{ new Flour() {ProductWeight=0.4 },new Meat() {ProductWeight=1},new Water() {ProductWeight=0.1},new Eggs() {ProductWeight=0.6 } } },
-             new NapoleonCake(){NecessaryIngredients = new List<IProduct>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } }
+             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } ),
+             new KupalovskyBread ( new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
+             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } ),
+             new YaltPie( new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.1 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
+             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.4 },new Meat() {ProductWeight=1},new Water() {ProductWeight=0.1},new Eggs() {ProductWeight=0.6 } } ),
+             new NapoleonCake(new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
             };
-            BakeryProduct expectedProduct = new BorodinskyBread() { NecessaryIngredients = new List<IProduct> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } };
+            BakeryProduct expectedProduct = new BorodinskyBread(new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } );
             bakeryProducts = new Bakery().FilterByPriceAndColories(bakeryProducts, expectedProduct);
             int expectedNumberOfProducts = 1;
 
@@ -80,14 +80,14 @@ namespace BakeryLib.NunitTest
         {
 
             BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake (){NecessaryIngredients = new List<IProduct>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } },
-             new KupalovskyBread () {NecessaryIngredients= new List<IProduct>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } },
-             new BorodinskyBread() { NecessaryIngredients = new List<IProduct> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } },
-             new YaltPie(){NecessaryIngredients=new List<IProduct>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.1 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } },
-             new MinskPie(){NecessaryIngredients = new List<IProduct>{ new Flour() {ProductWeight=0.4 },new Meat() {ProductWeight=1},new Water() {ProductWeight=0.1},new Eggs() {ProductWeight=0.6 } } },
-             new NapoleonCake(){NecessaryIngredients = new List<IProduct>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } }
+             new LuntikCake (new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } ),
+             new KupalovskyBread (new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
+             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } ),
+             new YaltPie(new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.1 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
+             new MinskPie(new List<Product>{ new Flour() {ProductWeight=0.4 },new Meat() {ProductWeight=1},new Water() {ProductWeight=0.1},new Eggs() {ProductWeight=0.6 } } ),
+             new NapoleonCake( new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
             };
-            BakeryProduct expectedProduct = new BorodinskyBread() { NecessaryIngredients = new List<IProduct> { new Water() { ProductWeight = 2.233 }, new Flour() { ProductWeight = 4.2 } } };
+            BakeryProduct expectedProduct = new BorodinskyBread(new List<Product> { new Water() { ProductWeight = 2.233 }, new Flour() { ProductWeight = 4.2 } } );
             bakeryProducts = bakery.FilterByPriceAndColories(bakeryProducts, expectedProduct);
             
             Assert.IsEmpty(bakeryProducts);
@@ -102,12 +102,12 @@ namespace BakeryLib.NunitTest
 
 
             BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake (){NecessaryIngredients = new List<IProduct>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } },
-             new KupalovskyBread () {NecessaryIngredients= new List<IProduct>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } },
-             new BorodinskyBread() { NecessaryIngredients = new List<IProduct> { new Water() { ProductWeight = 5.3 }, new Flour() { ProductWeight = 0.2 } } },
-             new YaltPie(){NecessaryIngredients=new List<IProduct>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } },
-             new MinskPie(){NecessaryIngredients = new List<IProduct>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } },
-             new NapoleonCake(){NecessaryIngredients = new List<IProduct>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } }
+             new LuntikCake (new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } ),
+             new KupalovskyBread ( new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
+             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 5.3 }, new Flour() { ProductWeight = 0.2 } } ),
+             new YaltPie(new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
+             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } ),
+             new NapoleonCake( new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
             };
 
             BakeryProduct[] flourBac = bakery.FilterByIngridientWeight(bakeryProducts, flour);
@@ -130,12 +130,12 @@ namespace BakeryLib.NunitTest
 
 
             BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake (){NecessaryIngredients = new List<IProduct>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } },
-             new KupalovskyBread () {NecessaryIngredients= new List<IProduct>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } },
-             new BorodinskyBread() { NecessaryIngredients = new List<IProduct> { new Water() { ProductWeight = 5.3 }, new Flour() { ProductWeight = 0.2 } } },
-             new YaltPie(){NecessaryIngredients=new List<IProduct>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } },
-             new MinskPie(){NecessaryIngredients = new List<IProduct>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } },
-             new NapoleonCake(){NecessaryIngredients = new List<IProduct>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } }
+             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } ),
+             new KupalovskyBread (new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
+             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 5.3 }, new Flour() { ProductWeight = 0.2 } } ),
+             new YaltPie(new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
+             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } ),
+             new NapoleonCake(new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
             };
 
             BakeryProduct[] flourBac = bakery.FilterByIngridientWeight(bakeryProducts, flour);
@@ -156,12 +156,12 @@ namespace BakeryLib.NunitTest
         public void FilterByIngridientCountTest_PPPP_FALSE(int count, int expected,int testCaseNum)
         {
             BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake (){NecessaryIngredients = new List<IProduct>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } },
-             new KupalovskyBread () {NecessaryIngredients= new List<IProduct>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } },
-             new BorodinskyBread() { NecessaryIngredients = new List<IProduct> { new Water() { ProductWeight = 5.3 }, new Flour() { ProductWeight = 0.2 } } },
-             new YaltPie(){NecessaryIngredients=new List<IProduct>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } },
-             new MinskPie(){NecessaryIngredients = new List<IProduct>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } },
-             new NapoleonCake(){NecessaryIngredients = new List<IProduct>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } }
+             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } ),
+             new KupalovskyBread ( new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
+             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 5.3 }, new Flour() { ProductWeight = 0.2 } } ),
+             new YaltPie(new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
+             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } ),
+             new NapoleonCake( new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
             };
 
             bakeryProducts = bakery.FilterByIngridientsCount(bakeryProducts, count);

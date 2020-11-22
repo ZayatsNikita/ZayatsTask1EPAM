@@ -34,3 +34,9 @@ D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\Pro
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\bin\Debug\netcoreapp3.1\BakeryLib.pdb
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.csproj.CopyComplete
 D:\Learn\EPAM\ZayatsTask1EPAM.copy\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.genruntimeconfig.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.csprojAssemblyReference.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.AssemblyInfoInputs.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.AssemblyInfo.cs
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.csproj.CoreCompileInputs.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.dll
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\TestingOfProgramm\obj\Debug\netcoreapp3.1\TestingOfProgramm.pdb

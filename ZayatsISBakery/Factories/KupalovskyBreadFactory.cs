@@ -6,9 +6,9 @@ namespace BakeryLib.Factories
 {
     class KupalovskyBreadFactory : IBakeryFactory
     {
-        public static BakeryProduct CreateBakeryProduct(List<IProduct> products)
+        public static BakeryProduct CreateBakeryProduct(List<Product> products)
         {
-            return new KupalovskyBread() {NecessaryIngredients = products };
+            return new KupalovskyBread(products);
         }
     }
 }
