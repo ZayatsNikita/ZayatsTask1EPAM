@@ -11,8 +11,9 @@ namespace BakeryLib.NunitTest
         [TestCase("Bread \"Borodinsky\" 6 pieces")]
         public void IsProductTest_CorrectValue_TrueReturned(string source)
         {
-            bool expected = Validation.IsProduct(ref source);
-            Assert.AreEqual(expected,true);
+            int stub = 0;
+            bool actual = Validation.IsProduct(ref source,ref stub);
+            Assert.AreEqual(actual,true);
         }
 
         [TestCase("Cake Eroor \"Luntic\" 7 pieces")]
@@ -21,8 +22,9 @@ namespace BakeryLib.NunitTest
         [TestCase("BreadBorodinsky 6 piecehhs")]
         public void IsProductTest_WrongtValue_FalseReturned(string source)
         {
-            bool expected = Validation.IsProduct(ref source);
-            Assert.AreEqual(false,expected);
+            int stub = 0;
+            bool actual = Validation.IsProduct(ref source,ref stub);
+            Assert.AreEqual(false,actual);
         }
 
         [TestCase("Flour 5,2 kg  2,5 p 364 kkal")]
@@ -31,8 +33,8 @@ namespace BakeryLib.NunitTest
         {
             double weight=0, calories=0;
             decimal price=0;
-            bool expected = Validation.IsIngredient(ref source,ref weight,ref calories, ref price);
-            Assert.AreEqual(expected, true);
+            bool actual = Validation.IsIngredient(ref source,ref weight,ref calories, ref price);
+            Assert.AreEqual(true,actual);
         }
 
         [TestCase("Pie 4 kg 9 p 100 kkl")]
@@ -43,8 +45,8 @@ namespace BakeryLib.NunitTest
         {
             double weight=0, calories=0;
             decimal price=0;
-            bool expected = Validation.IsIngredient(ref source, ref weight, ref calories, ref price);
-            Assert.AreEqual(false, expected);
+            bool actual = Validation.IsIngredient(ref source, ref weight, ref calories, ref price);
+            Assert.AreEqual(false, actual);
         }
 
 

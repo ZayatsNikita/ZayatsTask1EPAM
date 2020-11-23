@@ -1,4 +1,5 @@
 ﻿using ProductsLib;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -28,9 +29,6 @@ namespace BakeryLib
         /// </summary>
         protected decimal markUpForSale;
 
-        /// <summary>
-        /// list of ingredients
-        /// </summary>
         protected List<Product> _necessaryIngredients;
 
         /// <summary>
@@ -44,8 +42,11 @@ namespace BakeryLib
         /// <returns>
         /// Total calories of incoming products
         /// </returns>
+        /// <exception cref="System.NullReferenceException">Thrown when the list of ingredients is not specified</exception>
         public virtual double GetCaloric()
-        { 
+        {
+            if (NecessaryIngredients == null)
+                throw new NullReferenceException();
             double res = 0;
             foreach(Product p in NecessaryIngredients)
             {
@@ -63,8 +64,11 @@ namespace BakeryLib
         /// <remarks>
         /// The product markup is also added to the cost of all ingredients
         /// </remarks>
+        /// <exception cref="System.NullReferenceException">Thrown when the list of ingredients is not specified</exception>
         public virtual decimal GetPrice()
         {
+            if (NecessaryIngredients == null)
+                throw new NullReferenceException();
             decimal res = 0;
             foreach (Product p in NecessaryIngredients)
             {

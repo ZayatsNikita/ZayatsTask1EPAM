@@ -31,12 +31,13 @@ namespace BakeryLib.Validaion
         /// </example>
         /// </returns>
         /// <remarks>If the line fits the template , it does not mean that there is such a bakery product</remarks>
-        public static bool IsProduct(ref string source)
+        public static bool IsProduct(ref string source,ref int countOfProduct)
         {
             Match match1 = productRegex.Match(source);
             if (match1.Success)
             {
                 source = match1.Groups["ProductType"].Value.Replace("\"", "") + match1.Groups["Product"].Value;
+                countOfProduct = Convert.ToInt32(match1.Groups["CountOfProduct"].Value);
                 return true;
             }
             return false;

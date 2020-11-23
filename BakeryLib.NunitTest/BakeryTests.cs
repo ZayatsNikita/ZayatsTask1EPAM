@@ -13,64 +13,51 @@ namespace BakeryLib.NunitTest
     [TestFixture]
     class BakeryTests
     {
-        Bakery bakery;
+
+        BakeryForWorkingWithBakeryProducts bakery;
+        BakeryProduct[] sourceArray;
         [SetUp]
         public void Initialization()
         {
-            bakery = new Bakery();
+            bakery = new BakeryForWorkingWithBakeryProducts();
+
+            sourceArray = new BakeryProduct[] {
+             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } ),
+             new KupalovskyBread (new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
+             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } ),
+             new YaltPie(new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
+             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } ),
+             new NapoleonCake(new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
+            };
         }
         [Test]
         public void SortByPriceTest_TheOrderIsIncorrect_TheOrderOfElementsWillChange()
         {
-            BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } ),
-             new KupalovskyBread ( new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
-             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } ),
-             new YaltPie( new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.1 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
-             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.4 },new Meat() {ProductWeight=1},new Water() {ProductWeight=0.1},new Eggs() {ProductWeight=0.6 } } ),
-             new NapoleonCake(new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
-            };
-            bakeryProducts = new Bakery().SortByPrice(bakeryProducts);
+            BakeryProduct[] bakeryProducts = bakery.SortByPrice(sourceArray);
 
-            bool expexted = bakeryProducts[0].GetType().Name == "KupalovskyBread" && bakeryProducts[1].GetType().Name == "BorodinskyBread"
+            bool actual = bakeryProducts[0].GetType().Name == "KupalovskyBread" && bakeryProducts[1].GetType().Name == "BorodinskyBread"
                 && bakeryProducts[2].GetType().Name == "NapoleonCake" && bakeryProducts[3].GetType().Name == "LuntikCake"
                 && bakeryProducts[4].GetType().Name == "YaltPie" && bakeryProducts[5].GetType().Name == "MinskPie";
 
-            Assert.IsTrue(expexted);
+            Assert.IsTrue(actual);
         }
         [Test]
         public void SortByCaloricTest_TheOrderIsIncorrect_TheOrderOfElementsWillChange()
         {
-            BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } ),
-             new KupalovskyBread ( new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
-             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } ),
-             new YaltPie( new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.1 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
-             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.4 },new Meat() {ProductWeight=1},new Water() {ProductWeight=0.1},new Eggs() {ProductWeight=0.6 } } ),
-             new NapoleonCake(new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
-            };
 
-            bakeryProducts = bakery.SortByCalories(bakeryProducts);
+            BakeryProduct[] bakeryProducts = bakery.SortByCalories(sourceArray);
 
-            bool expexted = bakeryProducts[0].GetType().Name == "NapoleonCake" && bakeryProducts[1].GetType().Name == "KupalovskyBread" && bakeryProducts[2].GetType().Name == "LuntikCake"
+            bool actual = bakeryProducts[0].GetType().Name == "NapoleonCake" && bakeryProducts[1].GetType().Name == "LuntikCake" && bakeryProducts[2].GetType().Name == "KupalovskyBread"
                 && bakeryProducts[3].GetType().Name == "YaltPie" && bakeryProducts[4].GetType().Name == "MinskPie" && bakeryProducts[5].GetType().Name == "BorodinskyBread";
-            Assert.IsTrue(expexted);
+            Assert.IsTrue(actual);
         }
 
 
         [Test]
         public void FilterByPriceAndColoriesTest_ArrayWithOneMatch_1ElementsFind()
         {
-            BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } ),
-             new KupalovskyBread ( new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
-             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } ),
-             new YaltPie( new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.1 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
-             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.4 },new Meat() {ProductWeight=1},new Water() {ProductWeight=0.1},new Eggs() {ProductWeight=0.6 } } ),
-             new NapoleonCake(new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
-            };
             BakeryProduct expectedProduct = new BorodinskyBread(new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } );
-            bakeryProducts = bakery.FilterByPriceAndColories(bakeryProducts, expectedProduct);
+            BakeryProduct[] bakeryProducts = bakery.FilterByPriceAndColories(sourceArray, expectedProduct);
             int expectedNumberOfProducts = 1;
 
             bool actual = expectedNumberOfProducts == bakeryProducts.Length && bakeryProducts[0].GetType() == expectedProduct.GetType();
@@ -79,49 +66,32 @@ namespace BakeryLib.NunitTest
 
         }
         [Test]
-        public void FilterByPriceAndColoriesTest_Wrong_ZeroLengthArray()
+        public void FilterByPriceAndColoriesTest_WrongData_ZeroLengthArray()
         {
 
-            BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=0.75 }, new Eggs {ProductWeight=1 } } ),
-             new KupalovskyBread ( new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.1 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
-             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } ),
-             new YaltPie( new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.1 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
-             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.4 },new Meat() {ProductWeight=1},new Water() {ProductWeight=0.1},new Eggs() {ProductWeight=0.6 } } ),
-             new NapoleonCake(new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
-            };
             BakeryProduct expectedProduct = new BorodinskyBread(new List<Product> { new Water() { ProductWeight = 2.233 }, new Flour() { ProductWeight = 4.2 } } );
-            bakeryProducts = bakery.FilterByPriceAndColories(bakeryProducts, expectedProduct);
+            BakeryProduct[] actual = bakery.FilterByPriceAndColories(sourceArray, expectedProduct);
             
-            Assert.IsEmpty(bakeryProducts);
+            Assert.IsEmpty(actual);
         }
         [Test]
-        public void FilterByIngridientWeightTest_ExistingElementsAreUsed_NonZeroLengthArray()
+        public void FilterByIngridientWeightTest_ExistingElementsAreUsed_NotZeroLengthArray()
         {
-            Flour flour = new Flour() { ProductWeight = 0.4 };
-            Water water = new Water() { ProductWeight = 4.99 };
+            Flour flour = new Flour() { ProductWeight = 0.6 };
+            Water water = new Water() { ProductWeight = 4.5 };
             Eggs eggs = new Eggs() { ProductWeight = 0.19 };
-            Meat meat = new Meat() { ProductWeight = 0.3 };
+            Meat meat = new Meat() { ProductWeight = 0.05 };
 
 
-            BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake (new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } ),
-             new KupalovskyBread ( new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
-             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 5.3 }, new Flour() { ProductWeight = 0.2 } } ),
-             new YaltPie(new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
-             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } ),
-             new NapoleonCake( new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
-            };
+            BakeryProduct[] flourBac = bakery.FilterByIngridientWeight(sourceArray, flour);
+            BakeryProduct[] warerBac = bakery.FilterByIngridientWeight(sourceArray, water);
+            BakeryProduct[] eggsBac = bakery.FilterByIngridientWeight(sourceArray, eggs);
+            BakeryProduct[] meatBac = bakery.FilterByIngridientWeight(sourceArray, meat);
 
-            BakeryProduct[] flourBac = bakery.FilterByIngridientWeight(bakeryProducts, flour);
-            BakeryProduct[] warerBac = bakery.FilterByIngridientWeight(bakeryProducts, water);
-            BakeryProduct[] eggsBac = bakery.FilterByIngridientWeight(bakeryProducts, eggs);
-            BakeryProduct[] meatBac = bakery.FilterByIngridientWeight(bakeryProducts, meat);
-
-            bool actual1 = (flourBac[0].GetType().Name == "YaltPie" && flourBac[1].GetType().Name == "MinskPie" && flourBac.Length==2);
-            bool actual2 = (warerBac[0].GetType().Name == "BorodinskyBread" && warerBac[1].GetType().Name == "MinskPie" && warerBac.Length==2);
+            bool actual1 = (flourBac[0].GetType().Name == "BorodinskyBread" && flourBac.Length==1);
+            bool actual2 = warerBac[0].GetType().Name == "LuntikCake" && warerBac[1].GetType().Name == "MinskPie" && warerBac.Length==2;
             bool actual3 = (eggsBac[0].GetType().Name== "LuntikCake" && eggsBac[1].GetType().Name == "MinskPie" && eggsBac[2].GetType().Name == "NapoleonCake"  && eggsBac.Length == 3);
-            bool actual4 = meatBac[0].GetType().Name == "MinskPie" && meatBac.Length==1;
+            bool actual4 = meatBac[1].GetType().Name == "MinskPie" && meatBac[0].GetType().Name == "YaltPie" && meatBac.Length==2;
 
             Assert.IsTrue(actual1 && actual2 && actual3 && actual4);
         }
@@ -132,17 +102,8 @@ namespace BakeryLib.NunitTest
             Water water = new Water() { ProductWeight = 8.99 };
 
 
-            BakeryProduct[] bakeryProducts = new BakeryProduct[] {
-             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } ),
-             new KupalovskyBread (new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
-             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 5.3 }, new Flour() { ProductWeight = 0.2 } } ),
-             new YaltPie(new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
-             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } ),
-             new NapoleonCake(new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
-            };
-
-            BakeryProduct[] flourBac = bakery.FilterByIngridientWeight(bakeryProducts, flour);
-            BakeryProduct[] warerBac = bakery.FilterByIngridientWeight(bakeryProducts, water);
+            BakeryProduct[] flourBac = bakery.FilterByIngridientWeight(sourceArray, flour);
+            BakeryProduct[] warerBac = bakery.FilterByIngridientWeight(sourceArray, water);
 
             bool actual = (flourBac.Length == 0 && warerBac.Length == 0);
 
@@ -157,16 +118,7 @@ namespace BakeryLib.NunitTest
         [TestCase(5,0,5)]
         public void FilterByIngridientCountTest(int count, int expected,int testCaseNum)
         {
-            BakeryProduct[] bakeryProductsSource = new BakeryProduct[] {
-             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } ),
-             new KupalovskyBread ( new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
-             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 5.3 }, new Flour() { ProductWeight = 0.2 } } ),
-             new YaltPie(new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
-             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } ),
-             new NapoleonCake( new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
-            };
-
-            BakeryProduct[] bakeryProducts = bakery.FilterByIngridientsCount(bakeryProductsSource, count);
+            BakeryProduct[] bakeryProducts = bakery.FilterByIngridientsCount(sourceArray, count);
             bool actual=false;
             switch (testCaseNum)
             {
@@ -195,9 +147,5 @@ namespace BakeryLib.NunitTest
 
             Assert.IsTrue(actual);
         }
-
-
-
-
     }
 }

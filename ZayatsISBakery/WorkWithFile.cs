@@ -29,7 +29,8 @@ namespace BakeryLib
 
             List<BakeryProduct> resultList = new List<BakeryProduct>();
             array = new BakeryProduct[0];
-            if (System.IO.File.Exists(@"D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\text.txt"))
+            //if (System.IO.File.Exists(@"D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\text.txt"))
+            if (System.IO.File.Exists(@"..\..\..\..\text.txt"))
             {
                 string getedString, baceryProduct = null;
 
@@ -37,27 +38,34 @@ namespace BakeryLib
 
                 double weight = 0, calories = 0;
                 decimal price = 0;
+                int countOfproduct = 0,baceryLoops=0;
 
-                streamReader = new StreamReader(@"D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\text.txt");
+                streamReader = new StreamReader(@"..\..\..\..\text.txt");
 
                 bool createList = false;
 
                 while (!((getedString = streamReader.ReadLine()) == null))
                 {
-                    if (Validation.IsProduct(ref getedString))
+                    if (Validation.IsProduct(ref getedString,ref countOfproduct))
                     {
                         if (keeper.Count != 0)
                         {
                             try
                             {
-                                resultList.Add(Bakery.CreateBakeryProduct(baceryProduct, keeper));
+                                while (baceryLoops > 0)
+                                {
+                                    resultList.Add(Bakery.CreateBakeryProduct(baceryProduct, keeper));
+                                    baceryLoops--;
+                                }
                             }
                             catch (ArgumentException) { }
+                            catch (NullReferenceException) { }
                             finally
                             {
                                 keeper = new List<Product>();
                             }
                         }
+                        baceryLoops = countOfproduct;
                         baceryProduct = getedString;
                         createList = true;
                     }
@@ -73,13 +81,17 @@ namespace BakeryLib
                                         keeper.Add(ProductFabrica.CreateProduct(getedString,weight));
                                 }
                                 catch (ArgumentException) { }
-                                catch { }
                             }
                         }
                     }
                 }
                 if (keeper.Count != 0)
-                    resultList.Add(Bakery.CreateBakeryProduct(baceryProduct, keeper));
+                    try
+                    {
+                        resultList.Add(Bakery.CreateBakeryProduct(baceryProduct, keeper));
+                    }
+                    catch (ArgumentException) { }
+                    catch (NullReferenceException) { }
             }
             else
                 throw new FileNotFoundException();

@@ -67,7 +67,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
         /// <returns>A string that represents the current object.</returns>
         public override string ToString()
         {
-            return "Yalt Pie" + base.ToString();
+            return "Pie \"Yalt\"\n" + base.ToString();
         }
         /// <summary>
         /// Serves as the default hash function.

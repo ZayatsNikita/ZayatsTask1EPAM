@@ -60,7 +60,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 
         public override string ToString()
         {
-            return "Kupalovsky" + base.ToString();
+            return "Bread \"Kupalovsky\"\n" + base.ToString();
         }
 
         public override int GetHashCode()

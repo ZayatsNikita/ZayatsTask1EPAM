@@ -14,7 +14,7 @@ namespace ProductsLib.ProductValidaion
         /// <param name="price">Represents the cost of 1 kg of product</param>
         /// <param name="weight">Represents the product weight</param>
         /// <param name="calories">Represents the caloric content of 1 kg of product</param>
-        /// <returns>True if the data matches the product</returns>
+        /// <returns>True if the data matches the product, false in other situations</returns>
         public static bool IsDataValid(string source, decimal price, double weight, double calories)
         {
             switch (source ?? "null")

@@ -55,7 +55,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses
      
         public override string ToString()
         {
-            return "Napoleon cake" + base.ToString();
+            return "Cake \"Napoleon\"\n" + base.ToString();
         }
       
         public override int GetHashCode()

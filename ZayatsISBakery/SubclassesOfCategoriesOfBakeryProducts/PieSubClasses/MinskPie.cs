@@ -58,7 +58,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
         
         public override string ToString()
         {
-            return "Minsk Pie" + base.ToString();
+            return "Pie \"Minsk\"\n" + base.ToString();
         }
      
         public override int GetHashCode()

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Products\ProductsLib.csproj" />
+    <ProjectReference Include="..\ZayatsISBakery\BakeryLib.csproj" />
+  </ItemGroup>
+
+</Project>
