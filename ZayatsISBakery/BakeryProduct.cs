@@ -20,7 +20,7 @@ namespace BakeryLib
             {
                 result.Append($"Ingredient {index}: {NecessaryIngredients[index].ToString()}\n");
             }
-
+            result.Append($"price = { this.GetPrice()}  cal == {this.GetCaloric()}");
             return result.ToString();
         }
         

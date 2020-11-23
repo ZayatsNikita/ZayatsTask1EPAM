@@ -14,10 +14,10 @@ namespace Task1ItemNumber10_14
             BakeryForWorkingWithBakeryProducts bakery = new BakeryForWorkingWithBakeryProducts();
 
 
-            BakeryProduct[] bakeries = null, bakeries1, bakeries2;
+            BakeryProduct[] bakeries = null, bakeries1, bakeries2, bakeries3, bakeries4, bakeries5;
             WorkWithFile.GetData(out bakeries);
 
-            bakeries1 = new BakeryProduct[bakeries.Length];
+            bakeries1=new BakeryProduct[bakeries.Length];
             bakeries2 = new BakeryProduct[bakeries.Length];
 
             Array.Copy(bakeries, bakeries1, bakeries.Length);
@@ -32,17 +32,18 @@ namespace Task1ItemNumber10_14
                 bakeries2 = bakery.SortByPrice(bakeries2);
 
                 //12. Search for products that are equal in cost and calorie content
-                BakeryProduct[] bakeries3 = bakery.FilterByPriceAndColories(bakeries, (bakeries[0] ?? new BorodinskyBread(new List<Product> { new Flour() { ProductWeight = 1 }, new Water() { ProductWeight = 1 } })));
+                bakeries3 = bakery.FilterByPriceAndColories(bakeries, (bakeries[0] ?? new BorodinskyBread(new List<Product> { new Flour() { ProductWeight = 1 }, new Water() { ProductWeight = 1 } })));
+
 
                 //13. Search for products where the amount of use of a given ingredient is greater than the specified amount
 
                 //The specified weight value
                 double weight = 1.0;
 
-                BakeryProduct[] bakeries4 = bakery.FilterByIngridientWeight(bakeries, new Flour() { ProductWeight = weight });
+                bakeries4 = bakery.FilterByIngridientWeight(bakeries, new Flour() { ProductWeight = weight });
 
                 //14. Search for products where the number of ingredients is greater than the specified value
-                BakeryProduct[] bakeries5 = bakery.FilterByIngridientsCount(bakeries, 3);
+                bakeries5 = bakery.FilterByIngridientsCount(bakeries, 3);
             }
             catch (NullReferenceException) { }
             
