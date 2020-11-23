@@ -29,7 +29,6 @@ namespace BakeryLib
 
             List<BakeryProduct> resultList = new List<BakeryProduct>();
             array = new BakeryProduct[0];
-            //if (System.IO.File.Exists(@"D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ZayatsISBakery\text.txt"))
             if (System.IO.File.Exists(@"..\..\..\..\text.txt"))
             {
                 string getedString, baceryProduct = null;

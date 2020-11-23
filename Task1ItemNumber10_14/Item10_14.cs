@@ -14,7 +14,7 @@ namespace Task1ItemNumber10_14
             BakeryForWorkingWithBakeryProducts bakery = new BakeryForWorkingWithBakeryProducts();
 
 
-            BakeryProduct[] bakeries = null, bakeries1, bakeries2, bakeries3, bakeries4, bakeries5;
+            BakeryProduct[] bakeries = null, bakeries1, bakeries2, bakeries3=null, bakeries4=null, bakeries5=null;
             WorkWithFile.GetData(out bakeries);
 
             bakeries1=new BakeryProduct[bakeries.Length];
@@ -46,7 +46,6 @@ namespace Task1ItemNumber10_14
                 bakeries5 = bakery.FilterByIngridientsCount(bakeries, 3);
             }
             catch (NullReferenceException) { }
-            
         }
     }
 }

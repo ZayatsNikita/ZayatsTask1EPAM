@@ -4644,9 +4644,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copyRes\\ProductsLib.NUmitTest\\ProductsLib.NUmitTest.csproj",
-      "projectName": "ProductsLib.NUmitTest",
-      "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copyRes\\ProductsLib.NUmitTest\\ProductsLib.NUmitTest.csproj",
+      "projectUniqueName": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copyRes\\ProductsLib.NUmitTest\\ProductsLib.Test.csproj",
+      "projectName": "ProductsLib.Test",
+      "projectPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copyRes\\ProductsLib.NUmitTest\\ProductsLib.Test.csproj",
       "packagesPath": "C:\\Users\\pocht\\.nuget\\packages\\",
       "outputPath": "D:\\Learn\\EPAM\\ZayatsTask1EPAM.copyRes\\ProductsLib.NUmitTest\\obj\\",
       "projectStyle": "PackageReference",

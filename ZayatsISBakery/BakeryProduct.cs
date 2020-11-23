@@ -18,9 +18,8 @@ namespace BakeryLib
 
             for (index = 0; index < NecessaryIngredients.Count; index++)
             {
-                result.Append($"Ingredient {index}: {NecessaryIngredients[index].ToString()}\n");
+                result.Append($"Ingredient {index+1}: {NecessaryIngredients[index].ToString()}\n");
             }
-            result.Append($"price = { this.GetPrice()}  cal == {this.GetCaloric()}");
             return result.ToString();
         }
         
