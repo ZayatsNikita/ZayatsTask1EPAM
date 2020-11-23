@@ -15,7 +15,7 @@ namespace BakeryLib.Validaion
         /// <summary>
         /// Template for an ingredient
         /// </summary>
-        static Regex ingreedientRegex = new Regex(@"(?<Params>[a-zA-Z]+)\s+(?<Weight>\d+[,.]\d+|\d+)\s+kg\s+(?<Price>\d+[,.]\d+|\d+)\s+[pr$]\s+(?<Power>\d+[,.]\d+|\d+)\s+(kkal){1}");
+        static Regex ingreedientRegex = new Regex(@"\s*(?<Params>[a-zA-Z]+)\s+(?<Weight>\d+[,.]\d+|\d+)\s+kg\s+(?<Price>\d+[,.]\d+|\d+)\s+[pr$]\s+(?<Power>\d+[,.]\d+|\d+)\s+(kkal){1}");
 
 
         /// <summary>

@@ -95,3 +95,4 @@ D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ProductsLib.NUmitTest\obj\Debug\netcoreapp
 D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ProductsLib.NUmitTest\obj\Debug\netcoreapp3.1\ProductsLib.Test.dll
 D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ProductsLib.NUmitTest\obj\Debug\netcoreapp3.1\ProductsLib.Test.pdb
 D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ProductsLib.NUmitTest\obj\Debug\netcoreapp3.1\ProductsLib.Test.genruntimeconfig.cache
+D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\ProductsLib.NUmitTest\obj\Debug\netcoreapp3.1\ProductsLib.Test.csprojAssemblyReference.cache

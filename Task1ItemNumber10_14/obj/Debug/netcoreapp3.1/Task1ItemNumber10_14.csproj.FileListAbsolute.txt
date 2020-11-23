@@ -12,7 +12,3 @@ D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\Task1ItemNumber10_14\obj\Debug\netcoreapp3
 D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\Task1ItemNumber10_14\obj\Debug\netcoreapp3.1\Task1ItemNumber10_14.csproj.CopyComplete
 D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\Task1ItemNumber10_14\obj\Debug\netcoreapp3.1\Task1ItemNumber10_14.dll
 D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\Task1ItemNumber10_14\obj\Debug\netcoreapp3.1\Task1ItemNumber10_14.pdb
-D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\Task1ItemNumber10_14\bin\Debug\netcoreapp3.1\Task1ItemNumber10_14.exe
-D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\Task1ItemNumber10_14\bin\Debug\netcoreapp3.1\Task1ItemNumber10_14.runtimeconfig.json
-D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\Task1ItemNumber10_14\bin\Debug\netcoreapp3.1\Task1ItemNumber10_14.runtimeconfig.dev.json
-D:\Learn\EPAM\ZayatsTask1EPAM.copyRes\Task1ItemNumber10_14\obj\Debug\netcoreapp3.1\Task1ItemNumber10_14.genruntimeconfig.cache
