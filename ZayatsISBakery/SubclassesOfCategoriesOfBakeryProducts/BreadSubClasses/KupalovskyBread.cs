@@ -7,14 +7,30 @@ using BakeryLib.CategoriesOfBakeryProduct;
 
 namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 {
+    /// <summary>
+    /// Class describing KupalovskyBread
+    /// </summary>
     public class KupalovskyBread  : Bread
     {
+        /// <summary>
+        /// KupalovskyBread constructor
+        /// </summary>
+        /// <param name="necessaryIngredients">A list of ingredients with the specified parameters that will be placed in the product</param>
+        /// <exception cref="System.ArgumentException">
+        /// Thrown when an exception is thrown if the set of ingredients is incorrect
+        /// </exception>
         public KupalovskyBread(List<Product> necessaryIngredients)
         {
             if (IsKupalovskyBread(necessaryIngredients))
                 _necessaryIngredients = necessaryIngredients;
+            else throw new ArgumentException();
         }
 
+        /// <summary>
+        /// A static method that determines whether a set of ingredients matches a this bakery product
+        /// </summary>
+        /// <param name="list">Set of ingredients</param>
+        /// <returns>True if it matches, otherwise false</returns>
         public static bool IsKupalovskyBread(List<Product> list)
         {
             if ((list?.Count ?? 0) == 4)
@@ -25,7 +41,6 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
             }
             return false;
         }
-
 
 
         public override bool Equals(object obj)

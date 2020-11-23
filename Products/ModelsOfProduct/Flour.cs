@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
+    /// <summary>
+    /// Class describing Flour
+    /// </summary>
     public class Flour : Product
     {
         private const decimal PricePerKilogramConst = 2.5M;
@@ -20,10 +23,6 @@ namespace ProductsLib.ModelsOfProduct
             return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight >0);
         }
        
-        
-        
-        
-        
         public override bool Equals(object obj)
         {
             if (obj.GetType() == this.GetType())
@@ -40,7 +39,7 @@ namespace ProductsLib.ModelsOfProduct
 
         public override string ToString()
         {
-            return ProductWeight.ToString() + " " + PricePerKilogramConst.ToString() + " " + CalorificPerKilogramConst.ToString();
+            return base.ToString();
         }
     }
 }

@@ -5,8 +5,6 @@ namespace BakeryLib.NunitTest
     [TestFixture]
     public class ValidationTests
     {
-        
-
         [TestCase("Cake Napoleon 32 pieces")]
         [TestCase("Cake \"Luntic\" 7 pieces")]
         [TestCase("Pie \"Yalt\" 16 pieces")]

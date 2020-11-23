@@ -6,7 +6,7 @@ namespace BakeryLib.NunitTest
     class WorkWithFileTest
     {
        [Test]
-       public void WorkWithFileTest_ReadingFromFile_Array()
+       public void WorkWithFileTest_ReadingFromFile_ArrayWith6Elrments()
        {
             BakeryProduct[] bakeryProducts;
             WorkWithFile.GetData(out bakeryProducts);

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
+    /// <summary>
+    /// Class describing SourСream
+    /// </summary>
     public class SourСream : Product
     {
         private const decimal PricePerKilogramConst = 6.82M;
@@ -17,8 +20,6 @@ namespace ProductsLib.ModelsOfProduct
         {
             return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight >0);
         }
-
-
 
         public override bool Equals(object obj)
         {
@@ -35,7 +36,7 @@ namespace ProductsLib.ModelsOfProduct
         }
         public override string ToString()
         {
-            return ProductWeight.ToString() + " " + PricePerKilogramConst.ToString() + " " + CalorificPerKilogramConst.ToString();
+            return base.ToString();
         }
     }
 }

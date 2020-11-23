@@ -2,11 +2,22 @@
 using System;
 namespace ProductsLib.ProductValidaion
 {
+    /// <summary>
+    /// The class checks data for compliance with a specific product
+    /// </summary>
     public class ProductValidation
     {
+        /// <summary>
+        /// Static method wich checks data for compliance with a specific product
+        /// </summary>
+        /// <param name="source">Represents the product name</param>
+        /// <param name="price">Represents the cost of 1 kg of product</param>
+        /// <param name="weight">Represents the product weight</param>
+        /// <param name="calories">Represents the caloric content of 1 kg of product</param>
+        /// <returns>True if the data matches the product</returns>
         public static bool IsDataValid(string source, decimal price, double weight, double calories)
         {
-            switch (source)
+            switch (source ?? "null")
             {
                 case "Eggs":
                     return (Eggs.IsEggs(price, calories, weight));
@@ -25,7 +36,7 @@ namespace ProductsLib.ProductValidaion
                 default:
                     return false;
             }
-            throw new NullReferenceException("String dosent set");
+            
         }
     }
 }

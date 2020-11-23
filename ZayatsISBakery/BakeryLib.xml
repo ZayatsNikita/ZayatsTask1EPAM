@@ -1,0 +1,438 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BakeryLib</name>
+    </assembly>
+    <members>
+        <member name="T:BakeryLib.Bakery">
+            <summary>
+            Сlass of the main bakery that bakes baked goods,
+            and performs manipulations 
+            with them
+            </summary>
+        </member>
+        <member name="M:BakeryLib.Bakery.SortByPrice(BakeryLib.BakeryProduct[])">
+            <summary>
+            Sorts the array with bakery products in ascending order of price
+            </summary>
+            <param name="bakeryProducts">array for sorting</param>
+            <returns>sorted array</returns>
+        </member>
+        <member name="M:BakeryLib.Bakery.SortByCalories(BakeryLib.BakeryProduct[])">
+            <summary>
+            Sorts the array with bakery products in ascending order of calories
+            </summary>
+            <param name="bakeryProducts">array for sorting</param>
+            <returns>sorted array</returns>
+        </member>
+        <member name="M:BakeryLib.Bakery.FilterByPriceAndColories(BakeryLib.BakeryProduct[],BakeryLib.BakeryProduct)">
+            <summary>
+            finds in the array all bakery products equal to the given value and calorie content
+            </summary>
+            <param name="bakeryProducts">the array to search</param>
+            <param name="product">The bakery item that the array instances are compared to</param>
+            <returns>array of elements that match the transmitted product by price and calorie content.
+            <para>If there are no matching elements, returns an array of zero length</para>
+            </returns>
+            <remarks>
+            Only those elements whose cost and caloric content completely match the cost and caloric 
+            content of the specified product are selected
+            </remarks>
+        </member>
+        <member name="M:BakeryLib.Bakery.FilterByIngridientWeight(BakeryLib.BakeryProduct[],ProductsLib.Product)">
+            <summary>
+            finds all bakery products in the array where the weight of the ingredient 
+            is greater than the weight of the specified ingredient
+            </summary>
+            <param name="bakeryProducts">the array to search</param>
+            <param name="product">The bakery item that the array instances are compared to</param>
+            <returns>Array of elements that meet the condition
+            <para>If there are no matching elements, returns an array of zero length</para>
+            </returns>
+        </member>
+        <member name="M:BakeryLib.Bakery.FilterByIngridientsCount(BakeryLib.BakeryProduct[],System.Int32)">
+            <summary>
+            Finds all bakery products with more than the specified number of ingredients
+            </summary>
+            <param name="bakeryProducts">the array to search</param>
+            <param name="countOfIngreedient">The number of ingredients in a bakery product must be greater than this number</param>
+            <returns>
+            Массив элементов, удовлетворяющих условию
+            <para>If there are no matching elements, returns an array of zero length</para>
+            </returns>
+        </member>
+        <member name="M:BakeryLib.Bakery.CreateBakeryProduct(System.String,System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            Creates new bakery products, according to the received parameters
+            </summary>
+            <param name="source">A string that contains the name of the 
+            bakery product in the specified format<para>[The name of a specific product][Type of the product]</para><example>for example: YaltPie</example></param>
+            <param name="products">List of ingredients</param>
+            <returns>1 bakery product</returns>
+            <remarks>The list of transmitted ingredients must match what is needed for a particular bakery 
+            product, and the product itself must be known to the bakery
+            <para>All bakery products that are created are inheritors of the BakeryProduct class</para>
+            </remarks>
+            <exception cref="T:System.ArgumentException">Thrown when the passed string does not match any 
+            instance of the bakery product, or if the list of ingredients does not match the list of 
+            ingredients of the product</exception>
+        </member>
+        <member name="T:BakeryLib.BakeryProduct">
+            <summary>
+            This class is the basic one for all bakery products and describes their main functionality
+            </summary>
+        </member>
+        <member name="F:BakeryLib.BakeryProduct.markUpForSale">
+            <summary>
+            Stores the mark-up value for a product group
+            </summary>
+        </member>
+        <member name="F:BakeryLib.BakeryProduct._necessaryIngredients">
+            <summary>
+            list of ingredients
+            </summary>
+        </member>
+        <member name="P:BakeryLib.BakeryProduct.NecessaryIngredients">
+            <summary>
+            Property used for getting a list of ingredients that are in the product
+            </summary>
+        </member>
+        <member name="M:BakeryLib.BakeryProduct.GetCaloric">
+            <summary>
+            Calculates the number of calories that are contained in a bakery product
+            </summary>
+            <returns>
+            Total calories of incoming products
+            </returns>
+        </member>
+        <member name="M:BakeryLib.BakeryProduct.GetPrice">
+            <summary>
+            Calculates the cost of a bakery product
+            </summary>
+            <returns>
+            Total price of incoming products
+            </returns>
+            <remarks>
+            The product markup is also added to the cost of all ingredients
+            </remarks>
+        </member>
+        <member name="T:BakeryLib.CategoriesOfBakeryProduct.Bread">
+            <summary>
+            this class is the base class for the Bread type
+            <para>Sets a mark-up for bread products</para>
+            </summary>
+        </member>
+        <member name="T:BakeryLib.CategoriesOfBakeryProduct.Cake">
+            <summary>
+            this class is the base class for the Cake type
+            <para>Sets a mark-up for cake products</para>
+            </summary>
+        </member>
+        <member name="T:BakeryLib.CategoriesOfBakeryProduct.Pie">
+            <summary>
+            this class is the base class for the Pie type
+            <para>Sets a mark-up for pie products</para>
+            </summary>
+        </member>
+        <member name="T:BakeryLib.Factories.BorodinskyBreadFactory">
+            <summary>
+            The class that creates Borodinsky Bread
+            </summary>
+        </member>
+        <member name="M:BakeryLib.Factories.BorodinskyBreadFactory.CreateBakeryProduct(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            Static method for creating Borodinsky Bread
+            </summary>
+            <param name="products">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <returns>BorodinskyBread</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="T:BakeryLib.Factories.IBakeryFactory">
+            <summary>
+            Interface for creating product-specific factories
+            </summary>
+        </member>
+        <member name="M:BakeryLib.Factories.IBakeryFactory.CreateBakeryProduct(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            Method that should create the BakeryProduct object
+            </summary>
+            <returns>null</returns>
+        </member>
+        <member name="T:BakeryLib.Factories.KupalovskyBreadFactory">
+            <summary>
+            The class that creates Kupalovsky Bread
+            </summary>
+        </member>
+        <member name="M:BakeryLib.Factories.KupalovskyBreadFactory.CreateBakeryProduct(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            Static method for creating Kupalovsky Bread
+            </summary>
+            <param name="products">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <returns>Kupalovsky Bread</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="T:BakeryLib.Factories.LuntikCakeFactory">
+            <summary>
+            The class that creates Luntik Cake
+            </summary>
+        </member>
+        <member name="M:BakeryLib.Factories.LuntikCakeFactory.CreateBakeryProduct(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            Static method for creating Luntik Cake
+            </summary>
+            <param name="products">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <returns>LuntikCake</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="T:BakeryLib.Factories.MinskPieFactory">
+            <summary>
+            The class that creates Minsk Pie
+            </summary>
+        </member>
+        <member name="M:BakeryLib.Factories.MinskPieFactory.CreateBakeryProduct(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            Static method for creating Minsk Pie
+            </summary>
+            <param name="products">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <returns>MinskPie</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="T:BakeryLib.Factories.NapoleonCakeFactory">
+            <summary>
+            The class that creates Napoleon Cake
+            </summary>
+        </member>
+        <member name="M:BakeryLib.Factories.NapoleonCakeFactory.CreateBakeryProduct(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            Static method for creating Napoleon Cake
+            </summary>
+            <param name="products">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <returns>NapoleonCake</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="T:BakeryLib.Factories.YaltPieFactory">
+            <summary>
+            The class that creates Yalt Pie
+            </summary>
+        </member>
+        <member name="M:BakeryLib.Factories.YaltPieFactory.CreateBakeryProduct(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            Static method for creating Yalt Pie
+            </summary>
+            <param name="products">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <returns>Yalt Pie</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="T:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses.BorodinskyBread">
+            <summary>
+            Class describing BorodinskyBread
+            </summary>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses.BorodinskyBread.#ctor(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            BorodinskyBread constructor
+            </summary>
+            <param name="products">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses.BorodinskyBread.IsBorodinsky(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            A static method that determines whether a set of ingredients matches a this bakery product
+            </summary>
+            <param name="list">Set of ingredients</param>
+            <returns>True if it matches, otherwise false</returns>
+        </member>
+        <member name="T:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses.KupalovskyBread">
+            <summary>
+            Class describing KupalovskyBread
+            </summary>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses.KupalovskyBread.#ctor(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            KupalovskyBread constructor
+            </summary>
+            <param name="necessaryIngredients">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses.KupalovskyBread.IsKupalovskyBread(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            A static method that determines whether a set of ingredients matches a this bakery product
+            </summary>
+            <param name="list">Set of ingredients</param>
+            <returns>True if it matches, otherwise false</returns>
+        </member>
+        <member name="T:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses.LuntikCake">
+            <summary>
+            Class describing LuntikCake
+            </summary>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses.LuntikCake.#ctor(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            LuntikCake constructor
+            </summary>
+            <param name="necessaryIngredients">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses.LuntikCake.IsLunticCake(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            A static method that determines whether a set of ingredients matches a this bakery product
+            </summary>
+            <param name="list">Set of ingredients</param>
+            <returns>True if it matches, otherwise false</returns>
+        </member>
+        <member name="T:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses.NapoleonCake">
+            <summary>
+            Class describing NapoleonCake
+            </summary>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses.NapoleonCake.#ctor(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            NapoleonCake constructor
+            </summary>
+            <param name="necessaryIngredients">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses.NapoleonCake.IsNapoleonCake(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            A static method that determines whether a set of ingredients matches a this bakery product
+            </summary>
+            <param name="list">Set of ingredients</param>
+            <returns>True if it matches, otherwise false</returns>
+        </member>
+        <member name="T:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses.MinskPie">
+            <summary>
+            Class describing MinskPie
+            </summary>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses.MinskPie.#ctor(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            BorodinskyBread constructor
+            </summary>
+            <param name="necessaryIngredients">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses.MinskPie.IsMinskPie(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            A static method that determines whether a set of ingredients matches a this bakery product
+            </summary>
+            <param name="list">Set of ingredients</param>
+            <returns>True if it matches, otherwise false</returns>
+        </member>
+        <member name="T:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses.YaltPie">
+            <summary>
+            Class describing YaltPie
+            </summary>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses.YaltPie.#ctor(System.Collections.Generic.List{ProductsLib.Product})">
+            <summary>
+            YaltPie constructor
+            </summary>
+            <param name="necessaryIngredients">A list of ingredients with the specified parameters that will be placed in the product</param>
+            <exception cref="T:System.ArgumentException">
+            Thrown when an exception is thrown if the set of ingredients is incorrect
+            </exception>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses.YaltPie.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with current object</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses.YaltPie.IsYaltPie(System.Collections.Generic.List{ProductsLib.Product})" -->
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses.YaltPie.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses.YaltPie.GetHashCode">
+            <summary>
+            Serves as the default hash function.
+            </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="T:BakeryLib.Validaion.Validation">
+            <summary>
+            A class that is used to determine whether a string matches the format of an ingredient or bakery product
+            </summary>
+        </member>
+        <member name="F:BakeryLib.Validaion.Validation.productRegex">
+            <summary>
+            Template for bakery products
+            </summary>
+        </member>
+        <member name="F:BakeryLib.Validaion.Validation.ingreedientRegex">
+            <summary>
+            Template for an ingredient
+            </summary>
+        </member>
+        <member name="M:BakeryLib.Validaion.Validation.IsProduct(System.String@)">
+            <summary>
+            Method that checks whether the string matches the string template for bakery products
+            </summary>
+            <param name="source">The string to be parsed</param>
+            <returns>True if the string matches the bakery product template, else return false.
+            <para>
+            <remarks>If the template matches the passed string, the string value is changed to a string that has the format required for the bakery and that contains information about the expected product name</remarks>
+            </para>
+            <example>
+            For example: "Bread \"Borodinsky\" 6 pieces" Will be changed to "BorodinskyBread"
+            </example>
+            </returns>
+            <remarks>If the line fits the template , it does not mean that there is such a bakery product</remarks>
+        </member>
+        <member name="M:BakeryLib.Validaion.Validation.IsIngredient(System.String@,System.Double@,System.Double@,System.Decimal@)">
+            <summary>
+            Method that checks whether a string matches the string template for ingredients
+            </summary>
+            <param name="source">The string to be parsed.If the string matches the template, the name of the ingredient will be placed here</param>
+            <param name="weight">In case of successful analysis, the weight of the ingredient is placed here</param>
+            <param name="colories">If the string matches the ingredient template, the number of calories in the ingredient per 1
+            kg of weight is placed here, otherwise the value of the variable does not change</param>
+            <param name="price">If the string matches the ingredient template, the price of the ingredient per 
+            1 kg of weight is placed here, otherwise the value of the variable does not change</param>
+            <returns>True if the string matches the ingredients template, else return false.
+            </returns>
+        </member>
+        <member name="T:BakeryLib.WorkWithFile">
+             <summary>
+            a class that allows you to load
+            data about bakery products from a text file to an array
+             </summary>
+        </member>
+        <member name="M:BakeryLib.WorkWithFile.GetData(BakeryLib.BakeryProduct[]@)">
+            <summary>
+            Static method that extracts data from a file
+            </summary>
+            <param name="array">Array where the extracted bakery products will be placed</param>
+            <exception cref="!:System.FileNotFoundException">Thrown if you can't get access to the file</exception>
+            <returns>Array with the received elements
+            <para>If the baking data cannot be extracted from the file or a read
+            error occurs from the file, a zero-length array is returned</para>
+            </returns>
+        </member>
+    </members>
+</doc>

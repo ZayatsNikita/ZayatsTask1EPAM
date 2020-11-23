@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
+    /// <summary>
+    /// Class describing Salt
+    /// </summary>
     public class Salt : Product
     {
         private const decimal PricePerKilogramConst = 0.57M;
@@ -36,7 +39,7 @@ namespace ProductsLib.ModelsOfProduct
         }
         public override string ToString()
         {
-            return ProductWeight.ToString() + " " + PricePerKilogramConst.ToString() + " " + CalorificPerKilogramConst.ToString();
+            return base.ToString();
         }
     }
 }

@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using ProductsLib.ModelsOfProduct;
 using ProductsLib.ProductValidaion;
 
 namespace ProductsLib.NUmitTest
@@ -19,7 +20,7 @@ namespace ProductsLib.NUmitTest
         [TestCase("Oil", 3.221, 5, 717, false)]
         [TestCase("Salt", 0.57, 5, 10, false)]
         [TestCase(V, 6.82, -3, 275.3, false)]
-        public void IsDataValidTest__ReturnedNameOfProduct(string source, double price, double weight, double calories, bool expected)
+        public void IsDataValidTest_AcceptsStringForParsingValidation(string source, double price, double weight, double calories, bool expected)
         {
             bool actual = ProductValidation.IsDataValid(source, (decimal)price, weight, calories);
             Assert.AreEqual(actual, expected);

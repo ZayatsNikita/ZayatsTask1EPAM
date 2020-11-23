@@ -2,9 +2,18 @@
 
 namespace ProductsLib.ProductFactories
 {
-    class EggsFabrica: IProductFabrica
+    /// <summary>
+    /// Factory class that creates Eggs
+    /// </summary>
+    class EggsFabrica : IProductFabrica
     {
-        public  static Product GetProduct(double weight)
+        /// <summary>
+        /// Creates a Eggs object with the specified weight
+        /// </summary>
+        /// <param name="weight">weight assigned to the product</param>
+        /// <returns>Eggs</returns>
+        /// <exception cref="System.ArgumentException">Throw if weight little then 0</exception>
+        public static Product GetProduct(double weight)
         {
             return new Eggs() { ProductWeight = weight };
         }

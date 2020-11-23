@@ -1,12 +1,20 @@
-﻿using ProductsLib.ModelsOfProduct;
+﻿using ProductsLib.ProductFactories;
 using System;
-using ProductsLib.ProductFactories;
 
 namespace ProductsLib
 {
-
+    /// <summary>
+    /// A class containing specific products inside the factory
+    /// </summary>
     public static class ProductFabrica
     {
+        /// <summary>
+        /// Static method for creating specific products
+        /// </summary>
+        /// <param name="source">parameter that reflects the name of the product</param>
+        /// <param name="weight">parameter that reflects the weight of the product</param>
+        /// <returns>Product obect</returns>
+        /// <exception cref="System.ArgumentException">It is thrown when the factory does not know this product</exception>
         public static Product CreateProduct(string source, double weight)
         {
             switch (source)

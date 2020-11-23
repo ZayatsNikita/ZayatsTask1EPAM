@@ -7,16 +7,28 @@ using BakeryLib.Validaion;
 
 
 namespace BakeryLib
-{
+{   /// <summary>
+    ///a class that allows you to load
+    ///data about bakery products from a text file to an array
+    /// </summary>
     public static class WorkWithFile
     {
+        /// <summary>
+        /// Static method that extracts data from a file
+        /// </summary>
+        /// <param name="array">Array where the extracted bakery products will be placed</param>
+        /// <exception cref="System.FileNotFoundException">Thrown if you can't get access to the file</exception>
+        /// <returns>Array with the received elements
+        /// <para>If the baking data cannot be extracted from the file or a read
+        /// error occurs from the file, a zero-length array is returned</para>
+        /// </returns>
         public static void GetData(out BakeryProduct[] array)
         {
 
             StreamReader streamReader;
 
             List<BakeryProduct> resultList = new List<BakeryProduct>();
-
+            array = new BakeryProduct[0];
             if (System.IO.File.Exists(@"D:\Learn\EPAM\ZayatsTask1EPAM.copy\ZayatsISBakery\text.txt"))
             {
                 string getedString, baceryProduct = null;
@@ -60,7 +72,6 @@ namespace BakeryLib
                                     if (ProductValidation.IsDataValid(getedString, price, weight,calories))
                                         keeper.Add(ProductFabrica.CreateProduct(getedString,weight));
                                 }
-                                catch (NullReferenceException) { }
                                 catch (ArgumentException) { }
                                 catch { }
                             }
