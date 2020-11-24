@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ProductsLib;
+using System;
 using System.Linq;
-using ProductsLib;
 
 namespace BakeryLib
 {
@@ -16,38 +14,12 @@ namespace BakeryLib
         /// <exception cref="System.NullReferenceException">Thrown when the array is set to zero</exception>
         public BakeryProduct[] SortByPrice(BakeryProduct[] bakeryProducts)
         {
+
             if (bakeryProducts == null)
                 throw new NullReferenceException();
-            return bakeryProducts.OrderBy(x => x.GetPrice()).ToArray();
-            #region quickSort
-            //int i = left, j = right;
-            //BakeryProduct tmp;
-            //decimal avgPrice=0;
-            //for(int index=left;index<right;index++)
-            //{
-            //    avgPrice += bakeryProducts[index].GetPrice();
-            //}
-            //avgPrice /= (right - left + 1);
-            //while(i<=j)
-            //{
-            //    while (bakeryProducts[i].GetPrice() < avgPrice)
-            //        i++;
-            //    while (bakeryProducts[j].GetPrice() > avgPrice)
-            //        j--;
-            //    if(i<=j)
-            //    {
-            //        tmp = bakeryProducts[i];
-            //        bakeryProducts[i] = bakeryProducts[j];
-            //        bakeryProducts[j] = tmp;
-            //        i++;
-            //        j--;
-            //    }
-            //}
-            //if (left < j)
-            //    SortByPrice(bakeryProducts,left,j);
-            //if(i<right)
-            //    SortByPrice(bakeryProducts, i, right);
-            #endregion
+            BakeryProduct[] res = new BakeryProduct [bakeryProducts.Length];
+            Array.Copy(bakeryProducts, res, bakeryProducts.Length);
+            return res.OrderBy(x => x.GetPrice()).ToArray();
         }
         /// <summary>
         /// Sorts the array with bakery products in ascending order of calories
@@ -59,6 +31,7 @@ namespace BakeryLib
         {
             if (bakeryProducts == null)
                 throw new NullReferenceException();
+            BakeryProduct[] res = (BakeryProduct[])bakeryProducts.Clone() ;
             return bakeryProducts.OrderBy(x => x.GetCaloric()).ToArray();
         }
         /// <summary>
@@ -95,7 +68,7 @@ namespace BakeryLib
             if (bakeryProducts == null)
                 throw new NullReferenceException();
             var result = from bProduct in bakeryProducts
-                         from ingredient in bProduct.NecessaryIngredients
+                         from ingredient in bProduct.IngredientsUsed
                          where ingredient.GetType() == product.GetType()
                          where ingredient.ProductWeight > product.ProductWeight
                          select bProduct;
@@ -115,7 +88,7 @@ namespace BakeryLib
         {
             if (bakeryProducts == null)
                 throw new NullReferenceException();
-            return bakeryProducts.Where(x => x.NecessaryIngredients.Count > countOfIngreedient).ToArray();
+            return bakeryProducts.Where(x => x.IngredientsUsed.Count > countOfIngreedient).ToArray();
         }
 
     }

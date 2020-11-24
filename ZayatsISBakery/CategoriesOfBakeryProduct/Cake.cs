@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ProductsLib;
-namespace BakeryLib.CategoriesOfBakeryProduct 
+﻿namespace BakeryLib.CategoriesOfBakeryProduct
 {
     /// <summary>
     /// this class is the base class for the Cake type

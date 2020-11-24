@@ -47,9 +47,9 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
             if (obj.GetType() != this.GetType() || obj == null) return false;
             MinskPie pie = (MinskPie)obj;
             {//Проверить на ошибки
-                for (int index = 0; index < (NecessaryIngredients?.Count ?? 0); index++)
+                for (int index = 0; index < (IngredientsUsed?.Count ?? 0); index++)
                 {
-                    if (pie.NecessaryIngredients.Find(x => x.GetType().Name == NecessaryIngredients[index].GetType().Name).ProductWeight != NecessaryIngredients[index].ProductWeight)
+                    if (pie.IngredientsUsed.Find(x => x.GetType().Name == IngredientsUsed[index].GetType().Name).ProductWeight != IngredientsUsed[index].ProductWeight)
                         return false;
                 }
                 return true;
@@ -60,10 +60,19 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses
         {
             return "Pie \"Minsk\"\n" + base.ToString();
         }
-     
+
+        public override object Clone()
+        {
+            List<Product> newIngridientList = new List<Product>(this.IngredientsUsed.Count);
+            for (int index = 0; index < this.IngredientsUsed.Count; index++)
+            {
+                newIngridientList[index] = (Product)this.IngredientsUsed[index].Clone();
+            }
+            return new MinskPie(newIngridientList);
+        }
         public override int GetHashCode()
         {
-            return HashCode.Combine(NecessaryIngredients, markUpForSale, typeof(MinskPie).Name);
+            return HashCode.Combine(IngredientsUsed, markUpForSale, typeof(MinskPie).Name);
         }
 
     }

@@ -1,11 +1,10 @@
-﻿using NUnit.Framework;
-using BakeryLib;
-using System.Collections.Generic;
-using ProductsLib;
-using ProductsLib.ModelsOfProduct;
-using BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses;
+﻿using BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses;
 using BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses;
 using BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses;
+using NUnit.Framework;
+using ProductsLib;
+using ProductsLib.ModelsOfProduct;
+using System.Collections.Generic;
 
 
 namespace BakeryLib.NunitTest
@@ -22,12 +21,12 @@ namespace BakeryLib.NunitTest
             bakery = new BakeryForWorkingWithBakeryProducts();
 
             sourceArray = new BakeryProduct[] {
-             new LuntikCake ( new List<Product>{ new Salt() {ProductWeight= 0.5}, new Water {ProductWeight=4.85 }, new Eggs {ProductWeight=1 } } ),
-             new KupalovskyBread (new List<Product>() { new Eggs() {ProductWeight=0.1 },new Flour() {ProductWeight=0.34 }, new Oil() { ProductWeight = 0.1 }, new Salt() { ProductWeight = 0.1 } } ),
-             new BorodinskyBread( new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } ),
-             new YaltPie(new List<Product>{ new Meat() {ProductWeight=0.1 },new Salt() {ProductWeight=0.1 }, new Flour() {ProductWeight=0.6 },new SourСream() {ProductWeight=0.1 },new Oil {ProductWeight=0.1 } } ),
-             new MinskPie( new List<Product>{ new Flour() {ProductWeight=0.45 },new Meat() {ProductWeight=1},new Water() {ProductWeight=7.5},new Eggs() {ProductWeight=0.6 } } ),
-             new NapoleonCake(new List<Product>{new SourСream(){ ProductWeight=0.2 },new Eggs {ProductWeight=0.2 } } )
+             new LuntikCake ( new List<Product>{ new Salt(0.5) , new Water(4.85) , new Eggs(1) }  ),
+             new KupalovskyBread (new List<Product>() { new Eggs(0.1),new Flour(0.34), new Oil(0.1), new Salt(0.1)   } ),
+             new BorodinskyBread( new List<Product> { new Water(4.233),new Flour(4.2) } ),
+             new YaltPie(new List<Product>{ new Meat(0.1),new Salt(0.1), new Flour(0.6),new SourСream(0.1),new Oil (0.1) } ),
+             new MinskPie( new List<Product>{ new Flour(0.45),new Meat(1),new Water(7.5),new Eggs(0.6) } ),
+             new NapoleonCake(new List<Product>{new SourСream(0.2),new Eggs(0.2) } )
             };
         }
         [Test]
@@ -56,7 +55,7 @@ namespace BakeryLib.NunitTest
         [Test]
         public void FilterByPriceAndColoriesTest_ArrayWithOneMatch_1ElementsFind()
         {
-            BakeryProduct expectedProduct = new BorodinskyBread(new List<Product> { new Water() { ProductWeight = 4.233 }, new Flour() { ProductWeight = 4.2 } } );
+            BakeryProduct expectedProduct = new BorodinskyBread(new List<Product> { new Water(4.233), new Flour(4.2)} );
             BakeryProduct[] bakeryProducts = bakery.FilterByPriceAndColories(sourceArray, expectedProduct);
             int expectedNumberOfProducts = 1;
 
@@ -69,7 +68,7 @@ namespace BakeryLib.NunitTest
         public void FilterByPriceAndColoriesTest_WrongData_ZeroLengthArray()
         {
 
-            BakeryProduct expectedProduct = new BorodinskyBread(new List<Product> { new Water() { ProductWeight = 2.233 }, new Flour() { ProductWeight = 4.2 } } );
+            BakeryProduct expectedProduct = new BorodinskyBread(new List<Product> { new Water(2.233), new Flour( 4.2) } );
             BakeryProduct[] actual = bakery.FilterByPriceAndColories(sourceArray, expectedProduct);
             
             Assert.IsEmpty(actual);
@@ -77,10 +76,10 @@ namespace BakeryLib.NunitTest
         [Test]
         public void FilterByIngridientWeightTest_ExistingElementsAreUsed_NotZeroLengthArray()
         {
-            Flour flour = new Flour() { ProductWeight = 0.6 };
-            Water water = new Water() { ProductWeight = 4.5 };
-            Eggs eggs = new Eggs() { ProductWeight = 0.19 };
-            Meat meat = new Meat() { ProductWeight = 0.05 };
+            Flour flour = new Flour(0.6);
+            Water water = new Water(4.5);
+            Eggs eggs = new Eggs(0.19);
+            Meat meat = new Meat(0.05);
 
 
             BakeryProduct[] flourBac = bakery.FilterByIngridientWeight(sourceArray, flour);
@@ -98,8 +97,8 @@ namespace BakeryLib.NunitTest
         [Test]
         public void FilterByIngridientWeightTest_NonexistentElementsAreUsed_ZeroLengthArray()
         {
-            Flour flour = new Flour() { ProductWeight = 10.4 };
-            Water water = new Water() { ProductWeight = 8.99 };
+            Flour flour = new Flour(10.4);
+            Water water = new Water(8.99);
 
 
             BakeryProduct[] flourBac = bakery.FilterByIngridientWeight(sourceArray, flour);

@@ -6,7 +6,7 @@ namespace ProductsLib.ProductFactories
     /// <summary>
     /// Factory class that creates Salt
     /// </summary>
-    class SaltFabrica
+    internal class SaltFabrica
     {
         /// <summary>
         /// Creates a Salt object with the specified weight
@@ -16,7 +16,7 @@ namespace ProductsLib.ProductFactories
         /// <exception cref="System.ArgumentException">Throw if weight little then 0</exception>
         public static Product GetProduct(double weight)
         {
-            return new Salt() { ProductWeight = weight };
+            return new Salt(weight);
         }
     }
 }

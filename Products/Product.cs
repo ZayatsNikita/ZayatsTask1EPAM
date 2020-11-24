@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Text.RegularExpressions;
-using System.Text;
 namespace ProductsLib
 {
     /// <summary>
     /// Base class for Products
     /// </summary>
-    public abstract class Product
+    public abstract class Product: ICloneable
     {
 
         private double _productWeight;
@@ -16,7 +14,7 @@ namespace ProductsLib
         public abstract double CalorificPerKilogram { get; }
         /// <summary>The ProductWeight property represents the weight of product.</summary>
         /// <exception cref="System.ArgumentException">Throw when a negative weight is passed</exception>
-        public double ProductWeight
+        public virtual double ProductWeight
         {
             get
             {
@@ -26,7 +24,7 @@ namespace ProductsLib
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException("The product weight is incorrect");
+                    throw new ArgumentException("An attempt was made to assign a negative or null weight to the product");
                 }
                 else
                 {
@@ -35,9 +33,12 @@ namespace ProductsLib
             }
         }
 
+        public abstract object Clone();
+
         public override string ToString()
         {
-            return $"{this.GetType().Name}: Weight: {this.ProductWeight}; Calories: {this.CalorificPerKilogram * this.ProductWeight} Kkal; Price:{(decimal)this.ProductWeight * this.PricePerKilogram}";
+            return $"{this.ProductWeight} kg  {this.PricePerKilogram} p {this.CalorificPerKilogram} kkal";
         }
+
     }
 }

@@ -6,7 +6,7 @@ namespace ProductsLib.ProductFactories
     /// <summary>
     /// Factory class that creates Meat
     /// </summary>
-    class MeatFabrica
+    internal class MeatFabrica:IProductFabrica
     {
         /// <summary>
         /// Creates a Meat object with the specified weight
@@ -16,7 +16,7 @@ namespace ProductsLib.ProductFactories
         /// <exception cref="System.ArgumentException">Throw if weight little then 0</exception>
         public static Product GetProduct(double weight)
         {
-            return new Meat() { ProductWeight = weight };
+            return new Meat(weight);
         }
     }
 }

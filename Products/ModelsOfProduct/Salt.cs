@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
@@ -9,20 +7,25 @@ namespace ProductsLib.ModelsOfProduct
     /// </summary>
     public class Salt : Product
     {
-        private const decimal PricePerKilogramConst = 0.57M;
-        private const double CalorificPerKilogramConst = 0;
+        /// <summary>
+        /// Constructor of the Salt class
+        /// </summary>
+        /// <param name="weight">product weight</param>
+        /// <exception cref="System.ArgumentException">Throw when a negative weight is passed</exception>
 
-
-        public override decimal PricePerKilogram => PricePerKilogramConst;
-        public override double CalorificPerKilogram => CalorificPerKilogramConst;
-
-        
-        public static bool IsSalt(decimal price, double colories, double weight)
+        public Salt(double weight)
         {
-            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight >0);
+            ProductWeight = weight;
         }
 
 
+        public override decimal PricePerKilogram => 0.57M;
+        public override double CalorificPerKilogram => 0;
+
+        public override object Clone()
+        {
+            return new Salt(this.ProductWeight);
+        }
 
         public override bool Equals(object obj)
         {
@@ -35,11 +38,11 @@ namespace ProductsLib.ModelsOfProduct
         }
         public override int GetHashCode()
         {
-            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeight);
+            return HashCode.Combine(PricePerKilogram, CalorificPerKilogram, ProductWeight);
         }
         public override string ToString()
         {
-            return base.ToString();
+            return "Salt "+ base.ToString();
         }
     }
 }

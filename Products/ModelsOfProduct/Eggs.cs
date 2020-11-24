@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
@@ -9,18 +7,22 @@ namespace ProductsLib.ModelsOfProduct
     /// </summary>
     public class Eggs : Product
     {
-
-        private const decimal PricePerKilogramConst = 2.22M;
-        private const double CalorificPerKilogramConst = 155;
-        public override decimal PricePerKilogram => PricePerKilogramConst;
-
-        public override double CalorificPerKilogram => CalorificPerKilogramConst;
-
-        public static bool IsEggs(decimal price, double colories, double weight)
+        /// <summary>
+        /// Constructor of the Eggs class
+        /// </summary>
+        /// <param name="weight">product weight</param>
+        /// <exception cref="System.ArgumentException">Throw when a negative weight is passed</exception>
+        public Eggs(double weight)
         {
-            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight >0);
+            ProductWeight = weight;
         }
+        public override decimal PricePerKilogram => 2.22M;
+        public override double CalorificPerKilogram => 155;
 
+        public override object Clone()
+        {
+            return new Eggs(this.ProductWeight);
+        }
 
         public override bool Equals(object obj)
         {
@@ -33,11 +35,11 @@ namespace ProductsLib.ModelsOfProduct
         }
         public override int GetHashCode()
         {
-            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeight);
+            return HashCode.Combine(PricePerKilogram, CalorificPerKilogram, ProductWeight);
         }
         public override string ToString()
         {
-            return base.ToString();
+            return "Eggs " + base.ToString();
         }
     }
 }

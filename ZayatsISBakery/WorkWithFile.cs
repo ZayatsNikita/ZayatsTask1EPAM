@@ -1,9 +1,9 @@
-﻿using ProductsLib;
+﻿using BakeryLib.Validaion;
+using ProductsLib;
+using ProductsLib.ProductValidaion;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using ProductsLib.ProductValidaion;
-using BakeryLib.Validaion;
 
 
 namespace BakeryLib
@@ -17,19 +17,24 @@ namespace BakeryLib
         /// Static method that extracts data from a file
         /// </summary>
         /// <param name="array">Array where the extracted bakery products will be placed</param>
+        ///<param = "filePath">A string that specifies the path to the file
+        ///<example>
+        ///For example: "..\\..\\..\\..\\text.txt"
+        /// </example>
+        /// </param>
         /// <exception cref="System.FileNotFoundException">Thrown if you can't get access to the file</exception>
         /// <returns>Array with the received elements
         /// <para>If the baking data cannot be extracted from the file or a read
         /// error occurs from the file, a zero-length array is returned</para>
         /// </returns>
-        public static void GetData(out BakeryProduct[] array)
+        public static void GetData(out BakeryProduct[] array, string filePath)
         {
 
             StreamReader streamReader;
 
             List<BakeryProduct> resultList = new List<BakeryProduct>();
             array = new BakeryProduct[0];
-            if (System.IO.File.Exists(@"..\..\..\..\text.txt"))
+            if (System.IO.File.Exists(filePath))
             {
                 string getedString, baceryProduct = null;
 
@@ -39,7 +44,7 @@ namespace BakeryLib
                 decimal price = 0;
                 int countOfproduct = 0,baceryLoops=0;
 
-                streamReader = new StreamReader(@"..\..\..\..\text.txt");
+                streamReader = new StreamReader(filePath);
 
                 bool createList = false;
 
@@ -91,8 +96,9 @@ namespace BakeryLib
                     }
                     catch (ArgumentException) { }
                     catch (NullReferenceException) { }
+                streamReader.Close();
             }
-            else
+            else 
                 throw new FileNotFoundException();
                 array = resultList.ToArray();
            

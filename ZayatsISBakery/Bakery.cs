@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using BakeryLib.Factories;
 using BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses;
-using BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses;
 using BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses;
-using BakeryLib.Factories;
+using BakeryLib.SubclassesOfCategoriesOfBakeryProducts.PieSubClasses;
 using ProductsLib;
+using System;
+using System.Collections.Generic;
 
 
 namespace BakeryLib
@@ -17,8 +16,6 @@ namespace BakeryLib
     /// </summary>
     public class Bakery
     {
-        
-
         /// <summary>
         /// Creates new bakery products, according to the received parameters
         /// </summary>

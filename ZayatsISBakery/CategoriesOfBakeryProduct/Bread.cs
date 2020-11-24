@@ -1,8 +1,4 @@
-﻿using ProductsLib;
-using System;
-using System.Collections.Generic;
-
-namespace BakeryLib.CategoriesOfBakeryProduct
+﻿namespace BakeryLib.CategoriesOfBakeryProduct
 {
     /// <summary>
     /// this class is the base class for the Bread type

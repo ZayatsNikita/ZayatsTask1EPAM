@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
@@ -9,20 +7,23 @@ namespace ProductsLib.ModelsOfProduct
     /// </summary>
     public class Flour : Product
     {
-        private const decimal PricePerKilogramConst = 2.5M;
-        private const double CalorificPerKilogramConst = 364;
-       
-        
-        
-        public override decimal PricePerKilogram => PricePerKilogramConst;
-
-        public override double CalorificPerKilogram => CalorificPerKilogramConst;
-
-        public static bool IsFlour(decimal price, double colories, double weight)
+        /// <summary>
+        /// Constructor of the Flour class
+        /// </summary>
+        /// <param name="weight">product weight</param>
+        /// <exception cref="System.ArgumentException">Throw when a negative weight is passed</exception>
+        public Flour(double weight)
         {
-            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight >0);
+            ProductWeight = weight;
         }
-       
+        public override decimal PricePerKilogram => 2.5M;
+
+        public override double CalorificPerKilogram => 364;
+
+        public override object Clone()
+        {
+            return new Flour(this.ProductWeight);
+        }
         public override bool Equals(object obj)
         {
             if (obj.GetType() == this.GetType())
@@ -34,12 +35,11 @@ namespace ProductsLib.ModelsOfProduct
         }
         public override int GetHashCode()
         {
-            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeight);
+            return HashCode.Combine(PricePerKilogram, CalorificPerKilogram, ProductWeight);
         }
-
         public override string ToString()
         {
-            return base.ToString();
+            return "Flour "+base.ToString();
         }
     }
 }

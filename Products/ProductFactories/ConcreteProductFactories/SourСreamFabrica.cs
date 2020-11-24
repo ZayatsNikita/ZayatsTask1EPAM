@@ -6,7 +6,7 @@ namespace ProductsLib.ProductFactories
     /// <summary>
     /// Factory class that creates SourСream
     /// </summary>
-    class SourСreamFabrica
+    internal class SourСreamFabrica
     {
         /// <summary>
         /// Creates a SourСream object with the specified weight
@@ -16,7 +16,7 @@ namespace ProductsLib.ProductFactories
         /// <exception cref="System.ArgumentException">Throw if weight little then 0</exception>
         public static Product GetProduct(double weight)
         {
-            return new SourСream() { ProductWeight = weight };
+            return new SourСream(weight);
         }
     }
 }

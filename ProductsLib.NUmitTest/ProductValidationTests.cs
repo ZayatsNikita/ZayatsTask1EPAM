@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using ProductsLib.ModelsOfProduct;
 using ProductsLib.ProductValidaion;
 
 namespace ProductsLib.NUmitTest

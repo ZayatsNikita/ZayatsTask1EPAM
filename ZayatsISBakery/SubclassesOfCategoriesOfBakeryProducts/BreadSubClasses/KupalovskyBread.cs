@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ProductsLib.ModelsOfProduct;
+﻿using BakeryLib.CategoriesOfBakeryProduct;
 using ProductsLib;
-using BakeryLib.CategoriesOfBakeryProduct;
+using System;
+using System.Collections.Generic;
 
 namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 {
@@ -42,15 +40,25 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
             return false;
         }
 
+        public override object Clone()
+        {
+            List<Product> newIngridientList = new List<Product>(this.IngredientsUsed.Count);
+            for (int index = 0; index < this.IngredientsUsed.Count; index++)
+            {
+                newIngridientList[index] = (Product)this.IngredientsUsed[index].Clone();
+            }
+            return new KupalovskyBread(newIngridientList);
+        }
+
 
         public override bool Equals(object obj)
         {
             if (obj.GetType() != this.GetType() || obj == null) return false;
             KupalovskyBread bread = (KupalovskyBread)obj;
             {//Проверить на ошибки
-                for (int index = 0; index < (NecessaryIngredients?.Count ?? 0); index++)
+                for (int index = 0; index < (IngredientsUsed?.Count ?? 0); index++)
                 {
-                    if (bread.NecessaryIngredients.Find(x => x.GetType().Name == NecessaryIngredients[index].GetType().Name).ProductWeight != NecessaryIngredients[index].ProductWeight)
+                    if (bread.IngredientsUsed.Find(x => x.GetType().Name == IngredientsUsed[index].GetType().Name).ProductWeight != IngredientsUsed[index].ProductWeight)
                         return false;
                 }
                 return true;
@@ -65,7 +73,7 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.BreadSubClasses
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(NecessaryIngredients, markUpForSale);
+            return HashCode.Combine(IngredientsUsed, markUpForSale);
         }
     }
 }

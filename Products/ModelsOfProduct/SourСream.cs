@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
@@ -9,16 +7,21 @@ namespace ProductsLib.ModelsOfProduct
     /// </summary>
     public class SourСream : Product
     {
-        private const decimal PricePerKilogramConst = 6.82M;
-        private const double CalorificPerKilogramConst = 275.3;
-
-        public override decimal PricePerKilogram => PricePerKilogramConst;
-        public override double CalorificPerKilogram => CalorificPerKilogramConst;
-
-
-        public static bool IsSourСream(decimal price, double colories,double weight)
+        /// <summary>
+        /// Constructor of the SourСream class
+        /// </summary>
+        /// <param name="weight">product weight</param>
+        /// <exception cref="System.ArgumentException">Throw when a negative weight is passed</exception>
+        public SourСream(double weight)
         {
-            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight >0);
+            ProductWeight = weight;
+        }
+        public override decimal PricePerKilogram => 6.82M;
+        public override double CalorificPerKilogram => 275.3;
+
+        public override object Clone()
+        {
+            return new SourСream(this.ProductWeight);
         }
 
         public override bool Equals(object obj)
@@ -32,11 +35,11 @@ namespace ProductsLib.ModelsOfProduct
         }
         public override int GetHashCode()
         {
-            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeight);
+            return HashCode.Combine(PricePerKilogram, CalorificPerKilogram, ProductWeight);
         }
         public override string ToString()
         {
-            return base.ToString();
+            return "SourСream "+base.ToString();
         }
     }
 }

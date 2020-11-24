@@ -8,6 +8,8 @@ namespace BakeryLib.Validaion
     /// </summary>
     public class Validation
     {
+
+        #region Check the lines for matching products/ingredients
         /// <summary>
         /// Template for bakery products
         /// </summary>
@@ -63,14 +65,15 @@ namespace BakeryLib.Validaion
                 if (match2.Success)
                 {
                     source = match2.Groups["Params"].Value;
-                    weight = Double.Parse(match2.Groups["Weight"].Value);
-                    colories = Double.Parse(match2.Groups["Power"].Value);
-                    price = Decimal.Parse(match2.Groups["Price"].Value);
+                    weight = Double.Parse(match2.Groups["Weight"].Value.Replace(".",","));
+                    colories = Double.Parse(match2.Groups["Power"].Value.Replace(".", ","));
+                    price = Decimal.Parse(match2.Groups["Price"].Value.Replace(".", ","));
                     return true;
                 }
             }
             return false;
         }
+        #endregion
 
     }
 }

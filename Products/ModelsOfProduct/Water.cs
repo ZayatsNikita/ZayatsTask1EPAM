@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProductsLib.ModelsOfProduct
 {
@@ -9,27 +7,25 @@ namespace ProductsLib.ModelsOfProduct
     /// </summary>
     public class Water : Product
     {
-        private const decimal PricePerKilogramConst = 0.46M;
-        private const double CalorificPerKilogramConst = 0;
-  
-        public override decimal PricePerKilogram => PricePerKilogramConst;
-        public override double CalorificPerKilogram => CalorificPerKilogramConst;
-
         /// <summary>
-        /// This method checks the product for matching parameters
+        /// Constructor of the Water class
         /// </summary>
-        /// <param name="price">Describes the price of 1 kg of the product</param>
-        /// <param name="colories">Describes the number of calories in 1 kg of the product</param>
-        /// <param name="weight">Describes the weight of the product</param>
-        /// <returns>True if these parameters match the product</returns>
-        public static bool IsWater(decimal price, double colories, double weight)
+        /// <param name="weight">product weight</param>
+        /// <exception cref="System.ArgumentException">Throw when a negative weight is passed</exception>
+        public Water(double weight)
         {
-            return (price == PricePerKilogramConst && CalorificPerKilogramConst == colories && weight >0);
+            ProductWeight = weight;
         }
-        
+        public override decimal PricePerKilogram => 0.46M;
+        public override double CalorificPerKilogram => 0;
+
+        public override object Clone()
+        {
+            return new Water(this.ProductWeight);
+        }
         public override string ToString()
         {
-            return base.ToString();
+            return "Water "+base.ToString();
         }
         public override bool Equals(object obj)
         {
@@ -42,7 +38,7 @@ namespace ProductsLib.ModelsOfProduct
         }
         public override int GetHashCode()
         {
-            return HashCode.Combine(PricePerKilogramConst, CalorificPerKilogramConst, ProductWeight);
+            return HashCode.Combine(PricePerKilogram, CalorificPerKilogram, ProductWeight);
         }
     }
 }

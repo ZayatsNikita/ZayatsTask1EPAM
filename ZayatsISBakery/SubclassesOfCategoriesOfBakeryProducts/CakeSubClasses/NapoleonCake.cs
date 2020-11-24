@@ -44,9 +44,9 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses
             if (obj.GetType() != this.GetType() || obj == null) return false;
             NapoleonCake cake = (NapoleonCake)obj;
             {
-                for (int index = 0; index < (NecessaryIngredients?.Count ?? 0); index++)
+                for (int index = 0; index < (IngredientsUsed?.Count ?? 0); index++)
                 {
-                    if (cake.NecessaryIngredients.Find(x => x.GetType().Name == NecessaryIngredients[index].GetType().Name).ProductWeight != NecessaryIngredients[index].ProductWeight)
+                    if (cake.IngredientsUsed.Find(x => x.GetType().Name == IngredientsUsed[index].GetType().Name).ProductWeight != IngredientsUsed[index].ProductWeight)
                         return false;
                 }
                 return true;
@@ -60,7 +60,18 @@ namespace BakeryLib.SubclassesOfCategoriesOfBakeryProducts.CakeSubClasses
       
         public override int GetHashCode()
         {
-            return HashCode.Combine(NecessaryIngredients, markUpForSale, typeof(NapoleonCake).Name);
+            return HashCode.Combine(IngredientsUsed, markUpForSale, typeof(NapoleonCake).Name);
+        }
+
+
+        public override object Clone()
+        {
+            List<Product> newIngridientList = new List<Product>(this.IngredientsUsed.Count);
+            for (int index = 0; index < this.IngredientsUsed.Count; index++)
+            {
+                newIngridientList[index] = (Product)this.IngredientsUsed[index].Clone();
+            }
+            return new NapoleonCake(newIngridientList);
         }
     }
 }

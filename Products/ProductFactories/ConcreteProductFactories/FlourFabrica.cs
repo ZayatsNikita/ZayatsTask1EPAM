@@ -5,7 +5,7 @@ namespace ProductsLib.ProductFactories
     /// <summary>
     /// Factory class that creates Flour
     /// </summary>
-    class FlourFabrica : IProductFabrica
+    internal class FlourFabrica : IProductFabrica
     {
         /// <summary>
         /// Creates a flour object with the specified weight
@@ -15,7 +15,7 @@ namespace ProductsLib.ProductFactories
         /// <exception cref="System.ArgumentException">Throw if weight little then 0</exception>
         public static Product GetProduct(double weight)
         {
-            return new Flour() {ProductWeight=weight };
+            return new Flour(weight);
         }
     }
 }
