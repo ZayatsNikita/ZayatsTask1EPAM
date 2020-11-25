@@ -1,5 +1,6 @@
 ﻿using BakeryLib;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using ProductsLib.ModelsOfProduct;
 using ProductsLib;
@@ -15,8 +16,14 @@ namespace Task1ItemNumber10_14
 
 
             BakeryProduct[] bakeries = null, bakeries1=null, bakeries2=null, bakeries3=null, bakeries4=null, bakeries5=null;
-            WorkWithFile.GetData(out bakeries, @"..\..\..\..\text.txt");
-
+            try
+            {
+                WorkWithFile.GetData(out bakeries, @"..\..\..\..\text.txt");
+            }
+            catch(FileNotFoundException)
+            {
+                return;
+            }
             try
             {
                 //10. Sort by calorie content
